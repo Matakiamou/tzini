@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXXO - Die Zukunft der Erfrischung</title>
-    <meta name="description" content="EXXO - Eine revolutionäre neue Kategorie von Erfrischungsgetränken. Bald verfügbar mit unserem ersten Granatapfel-Getränk.">
+    <title>EXXO - POMA FIZZ | Premium Granatapfellimonade</title>
+    <meta name="description" content="EXXO POMA FIZZ - Premium Granatapfellimonade mit purem, frischem und echtem Geschmack. Die revolutionäre neue Kategorie von Erfrischungsgetränken.">
     <style>
         * {
             margin: 0;
@@ -15,7 +15,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #fff;
+            background: #000;
             overflow-x: hidden;
         }
 
@@ -27,7 +28,8 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+            border-bottom: 2px solid #d4af37;
             color: white;
             padding: 1rem 0;
             position: fixed;
@@ -44,9 +46,14 @@
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
         }
 
         .nav-links {
@@ -56,18 +63,20 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #d4af37;
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: #dc2626;
+            text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #000 0%, #1a0000 50%, #000 100%);
             color: white;
             padding: 120px 0 80px;
             text-align: center;
@@ -82,13 +91,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-100px); }
+            background: radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -97,69 +101,115 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1rem;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, #d4af37, #ffd700, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            color: #dc2626;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            color: #d4af37;
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
             color: white;
-            padding: 15px 30px;
+            padding: 18px 40px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+            border: 2px solid #d4af37;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+            background: linear-gradient(45deg, #b91c1c, #dc2626);
         }
 
-        /* Coming Soon Section */
-        .coming-soon {
-            padding: 80px 0;
-            background: #f8f9fa;
+        /* Product Section */
+        .product-showcase {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 50%, #1a0000 100%);
             text-align: center;
         }
 
-        .coming-soon h2 {
-            font-size: 2.5rem;
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .product-image {
+            text-align: center;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(220, 38, 38, 0.3));
+            transition: transform 0.3s;
+        }
+
+        .product-image img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .product-info h2 {
+            font-size: 3rem;
             margin-bottom: 2rem;
-            color: #333;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .product-preview {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .product-features {
+            list-style: none;
+            text-align: left;
         }
 
-        .product-preview h3 {
-            color: #e74c3c;
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .product-features li {
+            padding: 10px 0;
+            font-size: 1.2rem;
+            color: #dc2626;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .product-features li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-size: 1.5rem;
         }
 
         /* About Section */
         .about {
-            padding: 80px 0;
-            background: white;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
         }
 
         .about-grid {
@@ -170,65 +220,166 @@
         }
 
         .about-text h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 2rem;
-            color: #333;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .about-text p {
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
-            color: #666;
+            color: #ccc;
+            line-height: 1.8;
         }
 
         .company-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
             color: white;
-            padding: 40px;
+            padding: 50px;
             border-radius: 20px;
             text-align: center;
+            border: 2px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
         }
 
         .company-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #d4af37;
+        }
+
+        /* Legal Links */
+        .legal-section {
+            padding: 60px 0;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            border: 1px solid #d4af37;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .legal-links a:hover {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #000 0%, #1a0000 100%);
             color: white;
-            padding: 40px 0 20px;
+            padding: 60px 0 30px;
+            border-top: 2px solid #d4af37;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #ecf0f1;
+            margin-bottom: 1.5rem;
+            color: #d4af37;
+            font-size: 1.3rem;
         }
 
         .footer-section p, .footer-section a {
-            color: #bdc3c7;
+            color: #ccc;
             text-decoration: none;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             display: block;
+            transition: color 0.3s;
         }
 
         .footer-section a:hover {
-            color: #ecf0f1;
+            color: #dc2626;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #34495e;
-            color: #95a5a6;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            margin: 50px auto;
+            padding: 50px;
+            max-width: 900px;
+            border-radius: 15px;
+            border: 2px solid #d4af37;
+            color: white;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            color: #d4af37;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .modal-content h3 {
+            color: #dc2626;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .modal-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .close-btn {
+            background: linear-gradient(45deg, #dc2626, #b91c1c);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-size: 1rem;
+            border: 1px solid #d4af37;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: linear-gradient(45deg, #b91c1c, #dc2626);
+            transform: translateY(-2px);
         }
 
         /* Responsive */
@@ -238,16 +389,23 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
+            .product-container,
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .legal-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-content {
+                margin: 20px;
+                padding: 30px;
             }
         }
 
@@ -268,6 +426,7 @@
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
@@ -276,10 +435,10 @@
             <div class="logo">EXXO</div>
             <ul class="nav-links">
                 <li><a href="#home">Startseite</a></li>
+                <li><a href="#product">Produkt</a></li>
                 <li><a href="#about">Über uns</a></li>
-                <li><a href="#products">Produkte</a></li>
+                <li><a href="#legal">Rechtliches</a></li>
                 <li><a href="#contact">Kontakt</a></li>
-                <li><a href="#privacy">Datenschutz</a></li>
             </ul>
         </nav>
     </header>
@@ -289,20 +448,31 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 class="fade-in">EXXO</h1>
-                    <p class="fade-in delay-1">Die revolutionäre neue Kategorie von Erfrischungsgetränken</p>
-                    <p class="fade-in delay-2">Erleben Sie den Geschmack der Zukunft</p>
-                    <a href="#about" class="cta-button fade-in delay-3">Mehr erfahren</a>
+                    <div class="subtitle fade-in delay-1">POMA FIZZ</div>
+                    <p class="fade-in delay-2">Premium Granatapfellimonade</p>
+                    <p class="fade-in delay-3">Pure Frische • Echter Geschmack</p>
+                    <a href="#product" class="cta-button fade-in delay-4">Jetzt entdecken</a>
                 </div>
             </div>
         </section>
 
-        <section class="coming-soon">
+        <section id="product" class="product-showcase">
             <div class="container">
-                <h2 class="fade-in">Bald verfügbar</h2>
-                <div class="product-preview fade-in delay-1">
-                    <h3>🍎 EXXO Granatapfel</h3>
-                    <p>Unser erstes Getränk kombiniert die natürliche Süße und den intensiven Geschmack von Granatäpfeln mit unserer innovativen EXXO-Formel. Ein Erfrischungsgetränk, das neue Maßstäbe setzt.</p>
-                    <p><strong>Kommt sehr bald!</strong></p>
+                <div class="product-container">
+                    <div class="product-image fade-in">
+                        <img src="/images/exxo-can.png" alt="EXXO POMA FIZZ - Premium Granatapfellimonade" />
+                    </div>
+                    <div class="product-info fade-in delay-1">
+                        <h2>POMA FIZZ</h2>
+                        <ul class="product-features">
+                            <li>100% natürlicher Granatapfelgeschmack</li>
+                            <li>Erfrischende Kohlensäure</li>
+                            <li>Premium Qualität</li>
+                            <li>Einzigartiges Geschmackserlebnis</li>
+                            <li>Perfekt ausbalanciert</li>
+                            <li>Ohne künstliche Zusatzstoffe</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -312,16 +482,28 @@
                 <div class="about-grid">
                     <div class="about-text">
                         <h2 class="fade-in">Über EXXO</h2>
-                        <p class="fade-in delay-1">EXXO repräsentiert eine völlig neue Kategorie von Erfrischungsgetränken. Wir kombinieren natürliche Zutaten mit innovativer Technologie, um Getränke zu schaffen, die nicht nur erfrischen, sondern ein ganz neues Geschmackserlebnis bieten.</p>
-                        <p class="fade-in delay-2">Unsere Mission ist es, die Art und Weise zu revolutionieren, wie Menschen Erfrischungsgetränke erleben. Jedes EXXO-Getränk wird mit höchster Sorgfalt und den besten Zutaten hergestellt.</p>
-                        <p class="fade-in delay-3">Freuen Sie sich auf eine Geschmacksreise, die Ihre Erwartungen übertreffen wird.</p>
+                        <p class="fade-in delay-1">EXXO POMA FIZZ repräsentiert eine völlig neue Kategorie von Premium-Erfrischungsgetränken. Wir kombinieren die natürliche Kraft des Granatapfels mit innovativer Rezeptur, um ein Getränk zu schaffen, das nicht nur erfrischt, sondern ein außergewöhnliches Geschmackserlebnis bietet.</p>
+                        <p class="fade-in delay-2">Jede Dose EXXO POMA FIZZ wird mit höchster Sorgfalt und den besten Zutaten hergestellt. Unser Anspruch ist es, die Messlatte für Erfrischungsgetränke neu zu setzen.</p>
+                        <p class="fade-in delay-3">Erleben Sie den Unterschied - erleben Sie EXXO.</p>
                     </div>
                     <div class="company-info fade-in delay-2">
                         <h3>Unser Team</h3>
-                        <p><strong>Theodoros Georgiadis</strong><br>Eigentümer & Produzent</p>
+                        <p><strong>Theodoros Georgiadis</strong><br>Gründer, Eigentümer & Produzent</p>
                         <p><strong>Tzini Company</strong><br>Geschäftsführung & Vertrieb</p>
-                        <p>Mit jahrelanger Erfahrung in der Getränkeindustrie bringen wir Innovation und Qualität in jede Flasche EXXO.</p>
+                        <p>Mit jahrelanger Erfahrung und Leidenschaft für Qualität bringen wir Innovation in jede Dose EXXO.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="legal" class="legal-section">
+            <div class="container">
+                <h2 style="color: #d4af37; margin-bottom: 2rem; font-size: 2.5rem;">Rechtliche Informationen</h2>
+                <div class="legal-links">
+                    <a href="#" onclick="openModal('datenschutz')">Datenschutzerklärung</a>
+                    <a href="#" onclick="openModal('agb')">AGB</a>
+                    <a href="#" onclick="openModal('impressum')">Impressum</a>
+                    <a href="#" onclick="openModal('widerruf')">Widerrufsrecht</a>
                 </div>
             </div>
         </section>
@@ -332,48 +514,163 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>EXXO</h3>
-                    <p>Die Zukunft der Erfrischungsgetränke</p>
-                    <p>Bald in Ihrer Nähe verfügbar</p>
+                    <p>Premium Erfrischungsgetränke</p>
+                    <p>Die Zukunft des Geschmacks</p>
+                    <p>Made with passion in Germany</p>
                 </div>
                 <div class="footer-section">
                     <h3>Kontakt</h3>
-                    <p>Theodoros Georgiadis</p>
+                    <p><strong>Theodoros Georgiadis</strong></p>
                     <p>Tzini Company</p>
                     <p>E-Mail: info@exxo-drinks.com</p>
+                    <p>Tel: +49 (0) 123 456 789</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Rechtliches</h3>
-                    <a href="#privacy">Datenschutzerklärung</a>
-                    <a href="#terms">Allgemeine Geschäftsbedingungen</a>
-                    <a href="#imprint">Impressum</a>
+                    <h3>Produkte</h3>
+                    <p>EXXO POMA FIZZ</p>
+                    <p>Weitere Sorten in Kürze</p>
+                    <p>Premium Qualität</p>
                 </div>
                 <div class="footer-section">
                     <h3>Folgen Sie uns</h3>
                     <a href="#">Facebook</a>
                     <a href="#">Instagram</a>
                     <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 EXXO. Alle Rechte vorbehalten. | Theodoros Georgiadis - Tzini Company</p>
+                <p>&copy; 2024 EXXO. Alle Rechte vorbehalten. | Theodoros Georgiadis - Tzini Company | Handelsregister: HRB 123456</p>
             </div>
         </div>
     </footer>
 
-    <!-- Privacy Policy Modal (simplified) -->
-    <div id="privacy" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000;">
-        <div style="background: white; margin: 50px auto; padding: 40px; max-width: 800px; border-radius: 10px; max-height: 80vh; overflow-y: auto;">
+    <!-- Modals -->
+    <div id="datenschutz" class="modal">
+        <div class="modal-content">
             <h2>Datenschutzerklärung</h2>
-            <p><strong>Verantwortlicher:</strong> Theodoros Georgiadis, Tzini Company</p>
-            <h3>1. Datenerhebung</h3>
-            <p>Wir erheben nur die notwendigen Daten für die Bereitstellung unserer Dienstleistungen.</p>
-            <h3>2. Verwendung der Daten</h3>
-            <p>Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfragen verwendet.</p>
-            <h3>3. Datensicherheit</h3>
-            <p>Wir setzen technische und organisatorische Maßnahmen zum Schutz Ihrer Daten ein.</p>
+            
+            <h3>1. Verantwortlicher</h3>
+            <p><strong>Theodoros Georgiadis</strong><br>
+            Tzini Company<br>
+            Musterstraße 123<br>
+            12345 Musterstadt<br>
+            E-Mail: datenschutz@exxo-drinks.com<br>
+            Telefon: +49 (0) 123 456 789</p>
+
+            <h3>2. Erhebung und Speicherung personenbezogener Daten</h3>
+            <p>Beim Besuch unserer Website werden durch den auf Ihrem Endgerät zum Einsatz kommenden Browser automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sog. Logfile gespeichert.</p>
+
+            <h3>3. Verwendung von Cookies</h3>
+            <p>Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie dienen dazu, unser Angebot nutzerfreundlicher zu machen.</p>
+
             <h3>4. Ihre Rechte</h3>
-            <p>Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten.</p>
-            <button onclick="document.getElementById('privacy').style.display='none'" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px;">Schließen</button>
+            <p>Sie haben folgende Rechte:</p>
+            <ul style="color: #ccc; margin-left: 20px;">
+                <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+                <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+                <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+                <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
+            </ul>
+
+            <h3>5. Datensicherheit</h3>
+            <p>Wir verwenden innerhalb des Website-Besuchs das verbreitete SSL-Verfahren (Secure Socket Layer) in Verbindung mit der jeweils höchsten Verschlüsselungsstufe, die von Ihrem Browser unterstützt wird.</p>
+
+            <button class="close-btn" onclick="closeModal('datenschutz')">Schließen</button>
+        </div>
+    </div>
+
+    <div id="agb" class="modal">
+        <div class="modal-content">
+            <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+            
+            <h3>§ 1 Geltungsbereich</h3>
+            <p>Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen der Tzini Company (Theodoros Georgiadis) und dem Kunden über die Lieferung von EXXO-Produkten.</p>
+
+            <h3>§ 2 Vertragsschluss</h3>
+            <p>Die Darstellung der Produkte im Online-Shop stellt kein rechtlich bindendes Angebot, sondern einen unverbindlichen Online-Katalog dar. Durch Anklicken des Buttons "Bestellen" geben Sie eine verbindliche Bestellung ab.</p>
+
+            <h3>§ 3 Preise und Zahlungsbedingungen</h3>
+            <p>Alle Preise verstehen sich inklusive der gesetzlichen Mehrwertsteuer und zzgl. Versandkosten. Die Zahlung erfolgt wahlweise per Vorkasse, PayPal, Kreditkarte oder auf Rechnung.</p>
+
+            <h3>§ 4 Lieferung und Versand</h3>
+            <p>Die Lieferung erfolgt an die vom Kunden angegebene Lieferadresse. Die Lieferzeit beträgt in der Regel 2-5 Werktage nach Zahlungseingang.</p>
+
+            <h3>§ 5 Eigentumsvorbehalt</h3>
+            <p>Die gelieferte Ware bleibt bis zur vollständigen Bezahlung aller Forderungen unser Eigentum.</p>
+
+            <h3>§ 6 Gewährleistung</h3>
+            <p>Es gelten die gesetzlichen Gewährleistungsbestimmungen. Bei Verbrauchern beträgt die Gewährleistungsfrist zwei Jahre ab Erhalt der Ware.</p>
+
+            <h3>§ 7 Haftung</h3>
+            <p>Unsere Haftung auf Schadensersatz ist ausgeschlossen, soweit nachfolgend nichts anderes bestimmt ist. Dies gilt auch für die persönliche Haftung unserer Angestellten, Vertreter und Organe.</p>
+
+            <h3>§ 8 Schlussbestimmungen</h3>
+            <p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist unser Geschäftssitz, sofern der Kunde Kaufmann ist.</p>
+
+            <button class="close-btn" onclick="closeModal('agb')">Schließen</button>
+        </div>
+    </div>
+
+    <div id="impressum" class="modal">
+        <div class="modal-content">
+            <h2>Impressum</h2>
+            
+            <h3>Angaben gemäß § 5 TMG</h3>
+            <p><strong>Theodoros Georgiadis</strong><br>
+            Tzini Company<br>
+            Musterstraße 123<br>
+            12345 Musterstadt<br>
+            Deutschland</p>
+
+            <h3>Kontakt</h3>
+            <p>Telefon: +49 (0) 123 456 789<br>
+            E-Mail: info@exxo-drinks.com</p>
+
+            <h3>Handelsregister</h3>
+            <p>Registergericht: Amtsgericht Musterstadt<br>
+            Registernummer: HRB 123456</p>
+
+            <h3>Umsatzsteuer-ID</h3>
+            <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+            DE123456789</p>
+
+            <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+            <p>Theodoros Georgiadis<br>
+            Musterstraße 123<br>
+            12345 Musterstadt</p>
+
+            <h3>EU-Streitschlichtung</h3>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" style="color: #d4af37;">https://ec.europa.eu/consumers/odr/</a></p>
+
+            <h3>Verbraucherstreitbeilegung</h3>
+            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <button class="close-btn" onclick="closeModal('impressum')">Schließen</button>
+        </div>
+    </div>
+
+    <div id="widerruf" class="modal">
+        <div class="modal-content">
+            <h2>Widerrufsrecht</h2>
+            
+            <h3>Widerrufsbelehrung</h3>
+            <p><strong>Widerrufsrecht</strong></p>
+            <p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
+
+            <p>Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die Waren in Besitz genommen haben bzw. hat.</p>
+
+            <p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Theodoros Georgiadis, Tzini Company, Musterstraße 123, 12345 Musterstadt, Telefon: +49 (0) 123 456 789, E-Mail: widerruf@exxo-drinks.com) mittels einer eindeutigen Erklärung (z.B. ein mit der Post versandter Brief oder E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.</p>
+
+            <h3>Folgen des Widerrufs</h3>
+            <p>Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (mit Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass Sie eine andere Art der Lieferung als die von uns angebotene, günstigste Standardlieferung gewählt haben), unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist.</p>
+
+            <h3>Ausschluss des Widerrufsrechts</h3>
+            <p>Das Widerrufsrecht besteht nicht bei Verträgen zur Lieferung von Waren, die nicht vorgefertigt sind und für deren Herstellung eine individuelle Auswahl oder Bestimmung durch den Verbraucher maßgeblich ist oder die eindeutig auf die persönlichen Bedürfnisse des Verbrauchers zugeschnitten sind.</p>
+
+            <button class="close-btn" onclick="closeModal('widerruf')">Schließen</button>
         </div>
     </div>
 
@@ -392,11 +689,27 @@
             });
         });
 
-        // Privacy policy modal
-        document.querySelector('a[href="#privacy"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('privacy').style.display = 'block';
-        });
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
 
         // Animation on scroll
         const observerOptions = {
@@ -415,6 +728,15 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             el.style.animationPlayState = 'paused';
             observer.observe(el);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
         });
     </script>
 </body>
