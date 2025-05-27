@@ -1,3 +1,4 @@
+<!-- SPEICHERE DIESE DATEI ALS: index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -82,12 +83,18 @@
 
         .tzini-logo {
             height: 48px;
-            width: auto;
+            width: 120px;
             border: 2px solid var(--accent-gold);
             border-radius: 8px;
             padding: 6px;
             background: var(--neutral-white);
             box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--neutral-gray-700);
         }
 
         .brand-divider {
@@ -115,6 +122,7 @@
             box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
+            text-decoration: none;
         }
 
         .exxo-logo::before {
@@ -150,6 +158,7 @@
             font-size: 0.95rem;
             transition: color 0.2s ease;
             position: relative;
+            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -304,9 +313,17 @@
         .product-image {
             width: 200px;
             height: 300px;
-            object-fit: contain;
             margin: 0 auto 1.5rem;
             border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-white);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            border: 2px solid var(--accent-gold);
         }
 
         .product-title {
@@ -455,6 +472,139 @@
             font-size: 1rem;
         }
 
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--neutral-gray-50);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            color: var(--neutral-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .contact-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: var(--neutral-white);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--neutral-white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--neutral-gray-200);
+        }
+
+        .contact-form h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--neutral-gray-900);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--neutral-gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--neutral-gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-red);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            color: var(--neutral-white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            width: 100%;
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
         /* Footer */
         .footer {
             background: var(--neutral-gray-900);
@@ -479,6 +629,113 @@
             color: var(--accent-gold);
         }
 
+        .footer-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--neutral-gray-700);
+        }
+
+        .footer-links a {
+            color: var(--neutral-gray-400);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--neutral-white);
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .close {
+            color: var(--neutral-gray-500);
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .close:hover {
+            color: var(--primary-red);
+        }
+
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--neutral-gray-900);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .modal h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-red);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .modal p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--neutral-gray-700);
+        }
+
+        .modal ul, .modal ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .modal li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+            color: var(--neutral-gray-700);
+        }
+
+        .modal strong {
+            color: var(--neutral-gray-900);
+        }
+
+        .modal a {
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        .modal a:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .company-grid {
@@ -487,6 +744,11 @@
             }
             
             .nutrition-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -518,6 +780,12 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 2rem;
+                width: 95%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -536,6 +804,11 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .contact-info,
+            .contact-form {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
@@ -544,7 +817,7 @@
     <header class="header" id="header">
         <nav class="nav">
             <div class="brand-container">
-                <img src="/placeholder.svg?height=48&width=120&text=TZINI+UG" alt="Tzini UG - Hersteller" class="tzini-logo">
+                <div class="tzini-logo">TZINI UG</div>
                 <div class="brand-divider"></div>
                 <div class="exxo-brand">
                     <div class="exxo-logo">EXXO</div>
@@ -588,7 +861,7 @@
             
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="/placeholder.svg?height=300&width=150&text=EXXO+DOSE+330ml" alt="EXXO POMA FIZZ Dose 330ml" class="product-image">
+                    <div class="product-image">EXXO<br>DOSE<br>330ml</div>
                     <h3 class="product-title">EXXO Dose</h3>
                     <p class="product-description">Premium Aluminiumdose für Impulskäufe</p>
                     <div class="product-specs">
@@ -600,7 +873,7 @@
                 </div>
                 
                 <div class="product-card">
-                    <img src="/placeholder.svg?height=300&width=120&text=EXXO+GLAS+500ml" alt="EXXO POMA FIZZ Glasflasche 500ml" class="product-image">
+                    <div class="product-image">EXXO<br>GLAS<br>500ml</div>
                     <h3 class="product-title">EXXO Glasflasche</h3>
                     <p class="product-description">Premium Glasflasche für gehobenes Segment</p>
                     <div class="product-specs">
@@ -612,7 +885,7 @@
                 </div>
                 
                 <div class="product-card">
-                    <img src="/placeholder.svg?height=300&width=100&text=EXXO+PET+500ml" alt="EXXO POMA FIZZ PET Flasche 500ml" class="product-image">
+                    <div class="product-image">EXXO<br>PET<br>500ml</div>
                     <h3 class="product-title">EXXO PET</h3>
                     <p class="product-description">PET-Flasche für Convenience-Bereich</p>
                     <div class="product-specs">
@@ -713,14 +986,249 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-subtitle">
+                    Sprechen Sie mit uns über Geschäftsmöglichkeiten, Produktinformationen und Partnerschaften im LEH-Bereich.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Geschäftskontakt</h2>
+                    
+                    <div class="contact-item">
+                        <h3>Unternehmen</h3>
+                        <p><strong>Tzini UG (haftungsbeschränkt)</strong><br>
+                        Geschäftsführer: Theodoros Georgiadis</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>Adresse</h3>
+                        <p>Bielefelder Str. 11<br>
+                        33813 Oerlinghausen<br>
+                        Deutschland</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>Telefon</h3>
+                        <p><a href="tel:+4915773078966">+49 15773078966</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>E-Mail</h3>
+                        <p><a href="mailto:info@tzini.de">info@tzini.de</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>Öffnungszeiten</h3>
+                        <p>Montag - Freitag: 9:00 - 16:00 Uhr<br>
+                        Samstag & Sonntag: Geschlossen</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h3>Rechtliche Angaben</h3>
+                        <p>HRB 11142, Amtsgericht Lemgo<br>
+                        USt-IdNr.: DE364976576<br>
+                        Versichert bei: Nürnberger Versicherung</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Nachricht senden</h2>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="company" class="form-label">Unternehmen *</label>
+                            <input type="text" id="company" name="company" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Ansprechpartner *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-Mail *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefon</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Betreff *</label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Bitte wählen...</option>
+                                <option value="leh-anfrage">LEH-Geschäftsanfrage</option>
+                                <option value="produktinfo">Produktinformationen</option>
+                                <option value="partnerschaft">Partnerschaft</option>
+                                <option value="distribution">Distribution</option>
+                                <option value="sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Nachricht *</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Beschreiben Sie Ihr Anliegen..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="form-button">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact" class="footer">
+    <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 <strong>EXXO</strong> - Eine Marke der Tzini UG (haftungsbeschränkt). Alle Rechte vorbehalten.</p>
             <p>Geschäftsführer: <strong>Theodoros Georgiadis</strong> | HRB 11142, Amtsgericht Lemgo | USt-IdNr.: <strong>DE364976576</strong></p>
             <p>Bielefelder Str. 11, 33813 Oerlinghausen | Tel: <strong>+49 15773078966</strong> | E-Mail: <strong>info@tzini.de</strong></p>
+            
+            <div class="footer-links">
+                <a onclick="openModal('impressum')">Impressum</a>
+                <a onclick="openModal('datenschutz')">Datenschutz</a>
+                <a onclick="openModal('agb')">AGB</a>
+            </div>
         </div>
     </footer>
+
+    <!-- Modals -->
+    <!-- Impressum Modal -->
+    <div id="impressum" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('impressum')">&times;</span>
+            <h2>Impressum</h2>
+            
+            <p><strong>Angaben gemäß § 5 TMG</strong></p>
+            
+            <p><strong>Tzini UG (haftungsbeschränkt)</strong><br>
+            Bielefelder Str. 11<br>
+            33813 Oerlinghausen<br>
+            Deutschland</p>
+
+            <h3>Vertreten durch</h3>
+            <p>Geschäftsführer: <strong>Theodoros Georgiadis</strong></p>
+
+            <h3>Kontakt</h3>
+            <p>Telefon: <a href="tel:+4915773078966">+49 15773078966</a><br>
+            E-Mail: <a href="mailto:info@tzini.de">info@tzini.de</a></p>
+
+            <h3>Registereintrag</h3>
+            <p>Eintragung im Handelsregister<br>
+            Registergericht: Amtsgericht Lemgo<br>
+            Registernummer: HRB 11142</p>
+
+            <h3>Umsatzsteuer-ID</h3>
+            <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+            <strong>DE364976576</strong></p>
+
+            <h3>Versicherung</h3>
+            <p>Betriebshaftpflichtversicherung bei:<br>
+            <strong>Nürnberger Versicherung</strong></p>
+
+            <h3>Geschäftszeiten</h3>
+            <p>Montag bis Freitag: 9:00 - 16:00 Uhr<br>
+            Samstag und Sonntag: Geschlossen</p>
+
+            <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+            <p>Theodoros Georgiadis<br>
+            Bielefelder Str. 11<br>
+            33813 Oerlinghausen</p>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal -->
+    <div id="datenschutz" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('datenschutz')">&times;</span>
+            <h2>Datenschutzerklärung</h2>
+            
+            <h3>1. Datenschutz auf einen Blick</h3>
+            
+            <p><strong>Allgemeine Hinweise</strong><br>
+            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten 
+            passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie 
+            persönlich identifiziert werden können.</p>
+
+            <h3>2. Verantwortliche Stelle</h3>
+            <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+            <p><strong>Tzini UG (haftungsbeschränkt)</strong><br>
+            Theodoros Georgiadis<br>
+            Bielefelder Str. 11<br>
+            33813 Oerlinghausen<br>
+            Deutschland</p>
+            <p>Telefon: <a href="tel:+4915773078966">+49 15773078966</a><br>
+            E-Mail: <a href="mailto:info@tzini.de">info@tzini.de</a></p>
+
+            <h3>3. Datenerfassung auf dieser Website</h3>
+            
+            <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten 
+            können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.</p>
+
+            <h3>4. Ihre Rechte</h3>
+            <p>Sie haben jederzeit das Recht:</p>
+            <ul>
+                <li>unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten</li>
+                <li>Berichtigung oder Löschung dieser Daten zu verlangen</li>
+                <li>eine Einschränkung der Datenverarbeitung zu verlangen</li>
+                <li>der Datenverarbeitung zu widersprechen</li>
+                <li>Datenübertragbarkeit zu verlangen</li>
+            </ul>
+
+            <p><strong>Stand: Januar 2024</strong></p>
+        </div>
+    </div>
+
+    <!-- AGB Modal -->
+    <div id="agb" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('agb')">&times;</span>
+            <h2>Allgemeine Geschäftsbedingungen</h2>
+            
+            <h3>§ 1 Geltungsbereich</h3>
+            <p>Diese Allgemeinen Geschäftsbedingungen (nachfolgend "AGB") der Tzini UG (haftungsbeschränkt), 
+            Bielefelder Str. 11, 33813 Oerlinghausen (nachfolgend "Verkäufer") gelten für alle Verträge über 
+            die Lieferung von Waren, die ein Verbraucher oder Unternehmer (nachfolgend "Kunde") mit dem Verkäufer 
+            hinsichtlich der vom Verkäufer in seinem Online-Shop dargestellten Waren abschließt.</p>
+
+            <h3>§ 2 Vertragsschluss</h3>
+            <ol>
+                <li>Die im Online-Shop des Verkäufers enthaltenen Produktbeschreibungen stellen keine verbindlichen 
+                Angebote seitens des Verkäufers dar, sondern dienen zur Abgabe eines verbindlichen Angebots durch den Kunden.</li>
+                <li>Der Kunde kann das Angebot über das in den Online-Shop des Verkäufers integrierte Online-Bestellformular 
+                abgeben.</li>
+                <li>Der Verkäufer kann das Angebot des Kunden innerhalb von fünf Tagen annehmen.</li>
+            </ol>
+
+            <h3>§ 3 Preise und Zahlungsbedingungen</h3>
+            <ol>
+                <li>Die in den jeweiligen Angeboten des Verkäufers angegebenen Preise verstehen sich inklusive 
+                der gesetzlichen Umsatzsteuer und zuzüglich der Versandkosten.</li>
+                <li>Der Kunde kann aus folgenden Zahlungsarten wählen: Vorkasse per Banküberweisung, PayPal, 
+                Kreditkarte.</li>
+            </ol>
+
+            <h3>§ 4 Lieferung und Versand</h3>
+            <p>Die Lieferung von Waren erfolgt auf dem Versandweg an die vom Kunden angegebene Lieferadresse, 
+            sofern nichts anderes vereinbart ist.</p>
+
+            <h3>§ 5 Widerrufsrecht für Verbraucher</h3>
+            <p><strong>Widerrufsrecht</strong><br>
+            Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
+
+            <p><strong>Stand: Januar 2024</strong></p>
+        </div>
+    </div>
 
     <script>
         // Header scroll effect
@@ -750,6 +1258,28 @@
             });
         });
 
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -771,6 +1301,13 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Vielen Dank für Ihre Nachricht! Wir werden uns schnellstmöglich bei Ihnen melden.');
+            this.reset();
         });
     </script>
 </body>
