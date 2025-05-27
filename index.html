@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXXO - POMA FIZZ | Premium Granatapfel-Getränke</title>
-    <meta name="description" content="EXXO POMA FIZZ - Die revolutionäre Premium Granatapfel-Limonade von Tzini UG. Exotische Früchte als erfrischende Getränke.">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>EXXO - POMA FIZZ | Premium Granatapfel-Getränke | Tzini UG</title>
+    <meta name="description" content="EXXO POMA FIZZ - Premium Granatapfel-Limonade von Tzini UG. Innovative Getränkelösung für den deutschen LEH-Markt.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --exxo-black: #0a0a0a;
-            --exxo-red: #dc143c;
-            --exxo-red-dark: #b22222;
-            --exxo-gold: #ffd700;
-            --exxo-silver: #c0c0c0;
-            --exxo-silver-light: #e8e8e8;
-            --charcoal: #1a1a1a;
-            --white: #ffffff;
+            --primary-red: #DC143C;
+            --primary-red-dark: #B22222;
+            --accent-gold: #FFD700;
+            --neutral-black: #000000;
+            --neutral-white: #FFFFFF;
+            --neutral-gray-100: #F8F9FA;
+            --neutral-gray-200: #E9ECEF;
+            --neutral-gray-300: #DEE2E6;
+            --neutral-gray-400: #CED4DA;
+            --neutral-gray-500: #ADB5BD;
+            --neutral-gray-600: #6C757D;
+            --neutral-gray-700: #495057;
+            --neutral-gray-800: #343A40;
+            --neutral-gray-900: #212529;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
         * {
@@ -25,171 +38,146 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--exxo-black);
-            color: var(--white);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: var(--neutral-gray-900);
+            background-color: var(--neutral-white);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Header */
         .header {
             position: fixed;
             top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 15px 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--exxo-gold);
-            border-radius: 0 0 25px 25px;
-            transition: all 0.4s ease;
-        }
-
-        .nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .tzini-logo {
-            height: 55px;
-            width: auto;
-            border: 3px solid var(--exxo-gold);
-            border-radius: 15px;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.1);
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            border-bottom: 1px solid var(--neutral-gray-200);
+            z-index: 1000;
             transition: all 0.3s ease;
         }
 
-        .tzini-logo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.8);
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
         }
 
-        .brand-separator {
-            width: 4px;
-            height: 50px;
-            background: linear-gradient(45deg, var(--exxo-gold), var(--exxo-red));
-            border-radius: 3px;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .tzini-logo {
+            height: 48px;
+            width: auto;
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 6px;
+            background: var(--neutral-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-divider {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--primary-red));
         }
 
         .exxo-brand {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .exxo-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            letter-spacing: 8px;
-            
-            /* ECHTER DOSEN-LOOK */
-            background: linear-gradient(135deg, var(--exxo-red) 0%, var(--exxo-red-dark) 100%);
-            color: var(--white);
-            padding: 18px 30px;
-            border-radius: 20px;
-            border: 4px solid var(--exxo-gold);
-            
-            /* MEGA 3D SILBER-EFFEKT */
-            text-shadow: 
-                3px 3px 0px var(--exxo-silver),
-                6px 6px 0px #a0a0a0,
-                9px 9px 0px #808080,
-                12px 12px 20px rgba(0, 0, 0, 0.8),
-                0 0 40px rgba(255, 255, 255, 0.6);
-            
-            /* 3D BOX SCHATTEN */
-            box-shadow: 
-                0 12px 25px rgba(220, 20, 60, 0.7),
-                inset 0 3px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
-            
-            transition: all 0.4s ease;
-            transform: perspective(600px) rotateX(12deg);
+            letter-spacing: 0.1em;
+            color: var(--neutral-white);
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-gold);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
         }
 
-        .exxo-logo:hover {
-            transform: perspective(600px) rotateX(12deg) translateY(-5px);
-            box-shadow: 
-                0 18px 35px rgba(220, 20, 60, 0.9),
-                inset 0 4px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -4px 0 rgba(0, 0, 0, 0.4);
+        .exxo-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .brand-tagline {
-            font-size: 1rem;
-            color: var(--exxo-gold);
+            font-size: 0.875rem;
             font-weight: 600;
-            letter-spacing: 2px;
-            margin-top: 8px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+            color: var(--neutral-gray-600);
+            margin-top: 0.25rem;
+            letter-spacing: 0.05em;
         }
 
-        .nav-links {
+        .nav-menu {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 2rem;
+            margin: 0;
         }
 
-        .nav-links a {
-            color: #cccccc;
+        .nav-link {
+            color: var(--neutral-gray-700);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
             position: relative;
-            padding: 10px 0;
         }
 
-        .nav-links a::before {
+        .nav-link:hover {
+            color: var(--primary-red);
+        }
+
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--exxo-gold), var(--exxo-red));
+            height: 2px;
+            background: var(--primary-red);
             transition: width 0.3s ease;
-            border-radius: 2px;
         }
 
-        .nav-links a:hover {
-            color: var(--exxo-gold);
-            transform: translateY(-2px);
-        }
-
-        .nav-links a:hover::before {
+        .nav-link:hover::after {
             width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            background: 
-                radial-gradient(ellipse at center, rgba(220, 20, 60, 0.15) 0%, transparent 70%),
-                radial-gradient(ellipse at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, var(--exxo-black) 0%, var(--charcoal) 50%, var(--exxo-black) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 8rem 2rem 6rem;
+            background: linear-gradient(135deg, var(--neutral-gray-50) 0%, var(--neutral-white) 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-radius: 30px;
-            margin: 20px;
         }
 
         .hero::before {
@@ -199,345 +187,237 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,215,0,0.1);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,215,0,0);stop-opacity:0" /></radialGradient></defs><circle cx="50" cy="50" r="1" fill="url(%23grad)"/></svg>') repeat;
-            animation: sparkle 30s infinite linear;
-        }
-
-        @keyframes sparkle {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
+            background-image: radial-gradient(circle at 25% 25%, rgba(220, 20, 60, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
-            max-width: 1000px;
-            padding: 0 20px;
         }
 
-        .hero h1 {
+        .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 8rem;
+            font-size: 4.5rem;
             font-weight: 900;
-            letter-spacing: 12px;
-            
-            /* GOLD GRADIENT */
-            background: linear-gradient(145deg, 
-                var(--exxo-gold) 0%, 
-                #ffed4e 20%, 
-                var(--exxo-gold) 40%, 
-                #ffd700 60%, 
-                #ffed4e 80%, 
-                var(--exxo-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            
-            text-shadow: 
-                4px 4px 0px rgba(255, 215, 0, 0.3),
-                8px 8px 20px rgba(0, 0, 0, 0.8);
-            
-            margin-bottom: 30px;
-            animation: heroGlow 4s ease-in-out infinite alternate;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
         }
 
-        @keyframes heroGlow {
-            0% { 
-                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
-            }
-            100% { 
-                filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9));
-            }
-        }
-
-        .hero .subtitle {
+        .hero-subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: var(--exxo-red);
-            margin-bottom: 30px;
-            text-shadow: 0 0 30px rgba(220, 20, 60, 0.8);
-            letter-spacing: 6px;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
         }
 
-        .hero .description {
-            font-size: 1.6rem;
-            color: var(--exxo-silver-light);
-            margin-bottom: 50px;
-            font-weight: 500;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--neutral-gray-600);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         .cta-button {
-            background: linear-gradient(135deg, var(--exxo-red) 0%, var(--exxo-red-dark) 100%);
-            color: var(--white);
-            padding: 20px 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            color: var(--neutral-white);
+            padding: 1rem 2rem;
             border: none;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.3rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-lg);
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.5);
-            border: 3px solid var(--exxo-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(220, 20, 60, 0.7);
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
         }
 
         /* Products Section */
         .products {
-            padding: 120px 20px;
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--exxo-black) 50%, var(--charcoal) 100%);
-            border-radius: 30px;
-            margin: 20px;
+            padding: 6rem 2rem;
+            background: var(--neutral-white);
         }
 
-        .products h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
             text-align: center;
-            margin-bottom: 80px;
-            background: linear-gradient(135deg, var(--exxo-gold) 0%, #ffed4e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--neutral-gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--neutral-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .product-grid {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            max-width: 1400px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .product-item {
+        .product-card {
+            background: var(--neutral-white);
+            border-radius: 16px;
+            padding: 2rem;
             text-align: center;
-            transition: all 0.5s ease;
-            position: relative;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--neutral-gray-200);
         }
 
-        .product-item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-image {
             width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(220, 20, 60, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            height: 300px;
+            object-fit: contain;
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
         }
 
-        .product-item:hover::before {
-            opacity: 1;
-        }
-
-        .product-item:hover {
-            transform: translateY(-15px);
-        }
-
-        .product-item img {
-            height: 350px;
-            width: auto;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.6);
-            margin-bottom: 25px;
-            transition: all 0.5s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .product-item:hover img {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(220, 20, 60, 0.8);
-        }
-
-        .product-item h3 {
-            color: var(--exxo-gold);
-            font-size: 1.8rem;
+        .product-title {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+            color: var(--neutral-gray-900);
+            margin-bottom: 0.5rem;
         }
 
-        .product-item p {
-            color: var(--exxo-silver-light);
-            font-size: 1.2rem;
-            font-weight: 500;
+        .product-description {
+            color: var(--neutral-gray-600);
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
 
-        /* About Section */
-        .about {
-            padding: 120px 20px;
-            background: linear-gradient(135deg, var(--exxo-black) 0%, var(--charcoal) 100%);
-            border-radius: 30px;
-            margin: 20px;
+        .product-specs {
+            background: var(--neutral-gray-50);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--neutral-gray-700);
         }
 
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Company Section */
+        .company {
+            padding: 6rem 2rem;
+            background: var(--neutral-gray-50);
+        }
+
+        .company-grid {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
-            gap: 80px;
+            gap: 4rem;
             align-items: center;
         }
 
-        .about-text h2 {
+        .company-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, var(--exxo-gold) 0%, #ffed4e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--neutral-gray-900);
+            margin-bottom: 1.5rem;
         }
 
-        .about-text p {
-            font-size: 1.3rem;
-            color: var(--exxo-silver-light);
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-weight: 400;
+        .company-content p {
+            font-size: 1.1rem;
+            color: var(--neutral-gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
 
         .company-card {
-            background: linear-gradient(135deg, var(--exxo-red) 0%, var(--exxo-red-dark) 100%);
-            padding: 50px 40px;
-            border-radius: 25px;
-            border: 4px solid var(--exxo-gold);
-            box-shadow: 0 25px 60px rgba(220, 20, 60, 0.5);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .company-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            animation: cardRotate 20s linear infinite;
-        }
-
-        @keyframes cardRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .company-card-content {
-            position: relative;
-            z-index: 2;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            color: var(--neutral-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
         }
 
         .company-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--exxo-gold);
-            margin-bottom: 30px;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
         }
 
         .company-card p {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 500;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .company-card strong {
-            color: var(--exxo-gold);
-            font-weight: 700;
+            color: var(--accent-gold);
         }
 
         /* Nutrition Section */
         .nutrition {
-            padding: 120px 20px;
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--exxo-black) 100%);
-            border-radius: 30px;
-            margin: 20px;
-        }
-
-        .nutrition h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 80px;
-            background: linear-gradient(135deg, var(--exxo-gold) 0%, #ffed4e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            padding: 6rem 2rem;
+            background: var(--neutral-white);
         }
 
         .nutrition-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .nutrition-table {
-            background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
-            padding: 50px;
-            border-radius: 25px;
-            border: 3px solid var(--exxo-gold);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            background: var(--neutral-white);
+            border: 1px solid var(--neutral-gray-200);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .nutrition-table h3 {
-            color: var(--exxo-gold);
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 30px;
+            color: var(--neutral-gray-900);
+            margin-bottom: 1.5rem;
             text-align: center;
         }
 
         .nutrition-row {
             display: flex;
             justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            font-size: 1.2rem;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--neutral-gray-200);
         }
 
         .nutrition-row:last-child {
@@ -545,168 +425,138 @@
         }
 
         .nutrition-label {
-            color: var(--exxo-silver-light);
             font-weight: 500;
+            color: var(--neutral-gray-700);
         }
 
         .nutrition-value {
-            color: var(--white);
-            font-weight: 700;
+            font-weight: 600;
+            color: var(--neutral-gray-900);
         }
 
         .ingredients-card {
-            background: linear-gradient(135deg, var(--exxo-red) 0%, var(--exxo-red-dark) 100%);
-            padding: 50px;
-            border-radius: 25px;
-            border: 3px solid var(--exxo-gold);
-            box-shadow: 0 20px 50px rgba(220, 20, 60, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ingredients-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            animation: ingredientsRotate 18s linear infinite;
-        }
-
-        @keyframes ingredientsRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .ingredients-content {
-            position: relative;
-            z-index: 2;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            color: var(--neutral-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
         }
 
         .ingredients-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--exxo-gold);
-            margin-bottom: 25px;
-            text-align: center;
+            font-size: 1.5rem;
             font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-align: center;
         }
 
         .ingredients-card p {
-            color: var(--white);
-            font-size: 1.2rem;
-            line-height: 1.8;
-            text-align: center;
-            font-weight: 500;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--exxo-black) 100%);
-            padding: 80px 20px 40px;
-            border-top: 4px solid var(--exxo-gold);
-            border-radius: 30px;
-            margin: 20px;
+            background: var(--neutral-gray-900);
+            color: var(--neutral-white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
         }
 
-        .footer-content p {
-            color: var(--exxo-silver-light);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+        .footer p {
+            margin-bottom: 0.75rem;
+            color: var(--neutral-gray-400);
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
-        .footer-content strong {
-            color: var(--exxo-gold);
-            font-weight: 700;
+        .footer strong {
+            color: var(--accent-gold);
         }
 
         /* Responsive Design */
-        @media (max-width: 1200px) {
-            .about-container {
+        @media (max-width: 1024px) {
+            .company-grid {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 3rem;
             }
             
             .nutrition-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 2rem;
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            .nav-menu {
                 display: none;
             }
             
-            .hero h1 {
-                font-size: 4rem;
-                letter-spacing: 6px;
+            .hero-title {
+                font-size: 3rem;
             }
             
-            .hero .subtitle {
-                font-size: 2.5rem;
+            .hero-subtitle {
+                font-size: 2rem;
             }
             
             .exxo-logo {
-                font-size: 2.5rem;
-                padding: 12px 20px;
-                letter-spacing: 4px;
+                font-size: 2rem;
+                padding: 0.5rem 1rem;
+            }
+            
+            .brand-container {
+                gap: 1rem;
             }
             
             .product-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 40px;
-            }
-            
-            .logo-container {
-                gap: 15px;
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 3rem;
+            .hero {
+                padding: 6rem 1rem 4rem;
             }
             
-            .hero .subtitle {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
             
-            .exxo-logo {
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
                 font-size: 2rem;
-                padding: 10px 15px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
         <nav class="nav">
-            <div class="logo-container">
-                <img src="/placeholder.svg?height=55&width=140&text=TZINI+UG" alt="Tzini UG - Hersteller" class="tzini-logo">
-                <div class="brand-separator"></div>
+            <div class="brand-container">
+                <img src="/placeholder.svg?height=48&width=120&text=TZINI+UG" alt="Tzini UG - Hersteller" class="tzini-logo">
+                <div class="brand-divider"></div>
                 <div class="exxo-brand">
                     <div class="exxo-logo">EXXO</div>
                     <div class="brand-tagline">Premium Getränke</div>
                 </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Produkte</a></li>
-                <li><a href="#nutrition">Nährwerte</a></li>
-                <li><a href="#about">Über uns</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Produkte</a></li>
+                <li><a href="#nutrition" class="nav-link">Nährwerte</a></li>
+                <li><a href="#company" class="nav-link">Unternehmen</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -714,94 +564,150 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>EXXO</h1>
-            <div class="subtitle">POMA FIZZ</div>
-            <p class="description">Die revolutionäre Premium Granatapfel-Limonade. Exotische Früchte als erfrischende Getränke - nicht nur als Saft! Pure Frische • Echter Geschmack • Unvergleichliches Erlebnis</p>
-            <button class="cta-button">Jetzt entdecken</button>
+            <h1 class="hero-title">EXXO</h1>
+            <div class="hero-subtitle">POMA FIZZ</div>
+            <p class="hero-description">
+                Die innovative Premium Granatapfel-Limonade für den deutschen LEH-Markt. 
+                Exotische Früchte als erfrischende Getränke - eine neue Produktkategorie mit enormem Marktpotential.
+            </p>
+            <a href="#products" class="cta-button">
+                Produktportfolio entdecken
+            </a>
         </div>
     </section>
 
     <!-- Products Section -->
     <section id="products" class="products">
-        <h2>Unsere Produkte</h2>
-        <div class="product-grid">
-            <div class="product-item">
-                <img src="/placeholder.svg?height=350&width=150&text=EXXO+DOSE" alt="EXXO POMA FIZZ Dose">
-                <h3>EXXO Dose</h3>
-                <p>330ml Premium Dose</p>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Unser Produktportfolio</h2>
+                <p class="section-subtitle">
+                    Drei Verpackungsformate für optimale Marktabdeckung und maximale Handelsmarge
+                </p>
             </div>
-            <div class="product-item">
-                <img src="/placeholder.svg?height=350&width=120&text=EXXO+FLASCHE" alt="EXXO POMA FIZZ Flasche">
-                <h3>EXXO Flasche</h3>
-                <p>500ml Glasflasche</p>
-            </div>
-            <div class="product-item">
-                <img src="/placeholder.svg?height=350&width=100&text=EXXO+PET" alt="EXXO POMA FIZZ PET Flasche">
-                <h3>EXXO PET</h3>
-                <p>500ml PET Flasche</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/placeholder.svg?height=300&width=150&text=EXXO+DOSE+330ml" alt="EXXO POMA FIZZ Dose 330ml" class="product-image">
+                    <h3 class="product-title">EXXO Dose</h3>
+                    <p class="product-description">Premium Aluminiumdose für Impulskäufe</p>
+                    <div class="product-specs">
+                        <strong>330ml</strong><br>
+                        EAN: 4260XXX<br>
+                        VPE: 24 Stück<br>
+                        Haltbarkeit: 24 Monate
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/placeholder.svg?height=300&width=120&text=EXXO+GLAS+500ml" alt="EXXO POMA FIZZ Glasflasche 500ml" class="product-image">
+                    <h3 class="product-title">EXXO Glasflasche</h3>
+                    <p class="product-description">Premium Glasflasche für gehobenes Segment</p>
+                    <div class="product-specs">
+                        <strong>500ml</strong><br>
+                        EAN: 4260XXX<br>
+                        VPE: 12 Stück<br>
+                        Haltbarkeit: 24 Monate
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="/placeholder.svg?height=300&width=100&text=EXXO+PET+500ml" alt="EXXO POMA FIZZ PET Flasche 500ml" class="product-image">
+                    <h3 class="product-title">EXXO PET</h3>
+                    <p class="product-description">PET-Flasche für Convenience-Bereich</p>
+                    <div class="product-specs">
+                        <strong>500ml</strong><br>
+                        EAN: 4260XXX<br>
+                        VPE: 12 Stück<br>
+                        Haltbarkeit: 18 Monate
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Nutrition Section -->
     <section id="nutrition" class="nutrition">
-        <h2>Nährwerte & Zutaten</h2>
-        <div class="nutrition-grid">
-            <div class="nutrition-table">
-                <h3>Nährwerte pro 100ml</h3>
-                <div class="nutrition-row">
-                    <span class="nutrition-label">Brennwert</span>
-                    <span class="nutrition-value">116 kJ / 27 kcal</span>
-                </div>
-                <div class="nutrition-row">
-                    <span class="nutrition-label">Fett</span>
-                    <span class="nutrition-value">0 g</span>
-                </div>
-                <div class="nutrition-row">
-                    <span class="nutrition-label">Kohlenhydrate</span>
-                    <span class="nutrition-value">6,5 g</span>
-                </div>
-                <div class="nutrition-row">
-                    <span class="nutrition-label">davon Zucker</span>
-                    <span class="nutrition-value">6,5 g</span>
-                </div>
-                <div class="nutrition-row">
-                    <span class="nutrition-label">Eiweiß</span>
-                    <span class="nutrition-value">0 g</span>
-                </div>
-                <div class="nutrition-row">
-                    <span class="nutrition-label">Salz</span>
-                    <span class="nutrition-value">0,003 g</span>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Produktinformationen</h2>
+                <p class="section-subtitle">
+                    Transparente Nährwerte und hochwertige Zutaten für bewusste Verbraucher
+                </p>
             </div>
-            <div class="ingredients-card">
-                <div class="ingredients-content">
+            
+            <div class="nutrition-grid">
+                <div class="nutrition-table">
+                    <h3>Nährwerte pro 100ml</h3>
+                    <div class="nutrition-row">
+                        <span class="nutrition-label">Brennwert</span>
+                        <span class="nutrition-value">116 kJ / 27 kcal</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span class="nutrition-label">Fett</span>
+                        <span class="nutrition-value">0 g</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span class="nutrition-label">Kohlenhydrate</span>
+                        <span class="nutrition-value">6,5 g</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span class="nutrition-label">davon Zucker</span>
+                        <span class="nutrition-value">6,5 g</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span class="nutrition-label">Eiweiß</span>
+                        <span class="nutrition-value">0 g</span>
+                    </div>
+                    <div class="nutrition-row">
+                        <span class="nutrition-label">Salz</span>
+                        <span class="nutrition-value">0,003 g</span>
+                    </div>
+                </div>
+                
+                <div class="ingredients-card">
                     <h3>Zutaten</h3>
-                    <p>Wasser, Zucker, Zitronensaftkonzentrat, Kohlensäure, Granatapfelkonzentrat, färbendes Konzentrat aus Karotte, Säuerungsmittel (Äpfelsäure, Citronensäure), natürliches Aroma</p>
+                    <p>
+                        Wasser, Zucker, Zitronensaftkonzentrat, Kohlensäure, Granatapfelkonzentrat, 
+                        färbendes Konzentrat aus Karotte, Säuerungsmittel (Äpfelsäure, Citronensäure), 
+                        natürliches Aroma
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>Über EXXO</h2>
-                <p>Wir haben die Lücke im Markt erkannt: Exotische Früchte, die Menschen gerne essen, endlich als erfrischende Limonade verfügbar zu machen, nicht nur als Saft.</p>
-                <p>EXXO POMA FIZZ ist der erste Schritt in eine neue Ära der Premium-Erfrischungsgetränke. Unser Ziel ist es, zunächst den deutschen Markt zu erobern, dann die EU und schließlich die ganze Welt.</p>
-                <p>EXXO repräsentiert eine völlig neue Kategorie von Premium-Getränken - die Zukunft des authentischen Geschmacks.</p>
-            </div>
-            <div class="company-card">
-                <div class="company-card-content">
-                    <h3>Hersteller</h3>
+    <!-- Company Section -->
+    <section id="company" class="company">
+        <div class="container">
+            <div class="company-grid">
+                <div class="company-content">
+                    <h2>Über EXXO</h2>
+                    <p>
+                        EXXO erschließt eine neue Produktkategorie im deutschen Getränkemarkt: 
+                        Premium-Limonaden mit exotischen Früchten, die bisher nur als Säfte verfügbar waren.
+                    </p>
+                    <p>
+                        Mit POMA FIZZ setzen wir auf den wachsenden Trend zu authentischen Geschmackserlebnissen 
+                        und bedienen die steigende Nachfrage nach Premium-Erfrischungsgetränken im LEH.
+                    </p>
+                    <p>
+                        Unser Ziel: Marktführerschaft in Deutschland, anschließend EU-weite Expansion 
+                        und langfristig globale Präsenz.
+                    </p>
+                </div>
+                
+                <div class="company-card">
+                    <h3>Hersteller & Kontakt</h3>
                     <p><strong>Tzini UG (haftungsbeschränkt)</strong></p>
                     <p>Geschäftsführer: <strong>Theodoros Georgiadis</strong></p>
                     <p>Bielefelder Str. 11<br>33813 Oerlinghausen</p>
-                    <p>Tel: <strong>+49 15773078966</strong></p>
+                    <p>Telefon: <strong>+49 15773078966</strong></p>
                     <p>E-Mail: <strong>info@tzini.de</strong></p>
                     <p>HRB 11142, Amtsgericht Lemgo</p>
                     <p>USt-IdNr.: <strong>DE364976576</strong></p>
+                    <p>Öffnungszeiten: Mo-Fr 9:00-16:00</p>
+                    <p>Versichert bei: Nürnberger Versicherung</p>
                 </div>
             </div>
         </div>
@@ -810,64 +716,61 @@
     <!-- Footer -->
     <footer id="contact" class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 <strong>EXXO</strong>. Alle Rechte vorbehalten.</p>
-            <p>Hersteller: <strong>Tzini UG (haftungsbeschränkt)</strong> | Geschäftsführer: <strong>Theodoros Georgiadis</strong></p>
-            <p>HRB 11142, Amtsgericht Lemgo | USt-IdNr.: <strong>DE364976576</strong></p>
+            <p>&copy; 2024 <strong>EXXO</strong> - Eine Marke der Tzini UG (haftungsbeschränkt). Alle Rechte vorbehalten.</p>
+            <p>Geschäftsführer: <strong>Theodoros Georgiadis</strong> | HRB 11142, Amtsgericht Lemgo | USt-IdNr.: <strong>DE364976576</strong></p>
             <p>Bielefelder Str. 11, 33813 Oerlinghausen | Tel: <strong>+49 15773078966</strong> | E-Mail: <strong>info@tzini.de</strong></p>
-            <p>Öffnungszeiten: Mo-Fr 9:00-16:00 | Versichert bei: Nürnberger Versicherung</p>
         </div>
     </footer>
 
     <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 10, 0.98)';
-                header.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.8)';
-            } else {
-                header.style.background = 'rgba(10, 10, 10, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // CTA Button functionality
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            document.querySelector('#products').scrollIntoView({
-                behavior: 'smooth'
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
-        });
+        }, observerOptions);
 
-        // Add loading animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.2}px)`;
-            }
+        // Observe elements for animation
+        document.querySelectorAll('.product-card, .company-card, .nutrition-table, .ingredients-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
