@@ -3,6 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXXO - POMA FIZZ | Premium Granatapfel-Getränke</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tzini-logo {
+            height: 50px;
+            width: auto;
+            border: 3px solid #ffd700;
+            border-radius: 10px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .separator {
+            width: 3px;
+            height: 40px;
+            background: linear-gradient(45deg, #ffd700, #dc143c);
+            border-radius: 2px;
+        }
+
+        .exxo-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            
+            /* Dosen-Look: Roter Hintergrund */
+            background: linear-gradient(135deg, #dc143c 0%, #b22222 100%);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 3px solid #ffd700;
+            
+            /* 3D Silber-Text */
+            text-shadow: 
+                2px 2px 0px #c0c0c0,
+                4px 4px 0px #a0a0a0,
+                6px 6px 0px #808080,
+                8px 8px 15px rgba(0, 0, 0, 0.8);
+            
+            box-shadow: 
+                0 8px 16px rgba(220, 20, 60, 0.6),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            
+            transition: all 0.3s ease;
+        }
+
+        .exxo-logo:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 24px rgba(220, 20, 60, 0.8),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffd700;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #cccccc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-content .subtitle {
+            font-size: 2.5rem;
+            color: #dc143c;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #dc143c, #b22222);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(220, 20, 60, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(220, 20, 60, 0.6);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 20px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-item img {
+            height: 300px;
+            width: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .product-item h3 {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .product-item p {
+            color: #cccccc;
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: #0a0a0a;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .company-info {
+            background: linear-gradient(135deg, #dc143c, #b22222);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            border: 3px solid #ffd700;
+        }
+
+        .company-info h3 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .company-info p {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 3px solid #ffd700;
+        }
+
+        .footer p {
+            color: #cccccc;
+            margin-bottom: 10px;
+        }
+
+        .footer strong {
+            color: #ffd700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .logo-section {
+                gap: 10px;
+            }
+            
+            .exxo-logo {
+                font-size: 1.8rem;
+                padding: 8px 15px;
+            }
+            
+            .product-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-section">
+                <img src="/placeholder.svg?height=50&width=120&text=TZINI" alt="Tzini UG - Hersteller" class="tzini-logo">
+                <div class="separator"></div>
+                <div>
+                    <div class="exxo-logo">EXXO</div>
+                    <div class="tagline">Premium Getränke</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Produkte</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>EXXO</h1>
+            <div class="subtitle">POMA FIZZ</div>
+            <p>Die revolutionäre Premium Granatapfel-Limonade. Exotische Früchte als erfrischende Getränke - nicht nur als Saft!</p>
+            <button class="cta-button">Jetzt entdecken</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2>Unsere Produkte</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="/placeholder.svg?height=300&width=150&text=EXXO+Dose" alt="EXXO POMA FIZZ Dose">
+                <h3>EXXO Dose</h3>
+                <p>330ml Premium Dose</p>
+            </div>
+            <div class="product-item">
+                <img src="/placeholder.svg?height=300&width=120&text=EXXO+Flasche" alt="EXXO POMA FIZZ Flasche">
+                <h3>EXXO Flasche</h3>
+                <p>500ml Glasflasche</p>
+            </div>
+            <div class="product-item">
+                <img src="/placeholder.svg?height=300&width=100&text=EXXO+PET" alt="EXXO POMA FIZZ PET Flasche">
+                <h3>EXXO PET</h3>
+                <p>500ml PET Flasche</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Über EXXO</h2>
+        <p>Wir haben die Lücke im Markt erkannt: Exotische Früchte, die Menschen gerne essen, endlich als erfrischende Limonade verfügbar zu machen, nicht nur als Saft.</p>
+        <p>EXXO POMA FIZZ ist der erste Schritt in eine neue Ära der Premium-Erfrischungsgetränke.</p>
+        
+        <div class="company-info">
+            <h3>Hersteller</h3>
+            <p><strong>Tzini UG (haftungsbeschränkt)</strong></p>
+            <p>Geschäftsführer: Theodoros Georgiadis</p>
+            <p>Bielefelder Str. 11, 33813 Oerlinghausen</p>
+            <p>Tel: +49 15773078966</p>
+            <p>E-Mail: info@tzini.de</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <p>&copy; 2024 <strong>EXXO</strong>. Alle Rechte vorbehalten.</p>
+        <p>Hersteller: <strong>Tzini UG (haftungsbeschränkt)</strong> | Geschäftsführer: Theodoros Georgiadis</p>
+        <p>HRB 11142, Amtsgericht Lemgo | USt-IdNr.: DE364976576</p>
+        <p>Bielefelder Str. 11, 33813 Oerlinghausen | Tel: +49 15773078966</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EXXO - POMA FIZZ | Premium Granatapfellimonade</title>
     <meta name="description" content="EXXO POMA FIZZ - Die revolutionäre Premium Granatapfellimonade. Exotische Früchte als erfrischende Limonade. Von Tzini UG produziert.">
     <meta name="keywords" content="EXXO, POMA FIZZ, Granatapfellimonade, Premium Limonade, exotische Früchte, Erfrischungsgetränk, Tzini UG">
