@@ -112,6 +112,7 @@
             border-bottom: 2px solid transparent;
             padding-bottom: 4px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .nav-link:hover {
@@ -203,6 +204,7 @@
             position: relative;
             overflow: hidden;
             animation: premiumPulse 2s infinite 2s;
+            cursor: pointer;
         }
 
         .hero-button::before {
@@ -280,11 +282,11 @@
         }
 
         .bottle-image {
-            width: 250px; /* Gleiche Breite wie die Dose */
-            height: 400px; /* Gleiche Höhe wie die Dose */
+            width: 250px;
+            height: 400px;
             animation: gentleFloat 8s ease-in-out infinite 2s;
             filter: drop-shadow(0 10px 25px rgba(196, 30, 58, 0.3));
-            object-fit: contain; /* Behält das Seitenverhältnis bei */
+            object-fit: contain;
         }
 
         .product-image-container:hover .bottle-image {
@@ -590,6 +592,7 @@
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .contact-link:hover {
@@ -648,6 +651,118 @@
             margin-bottom: 0.25rem;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: var(--exxo-charcoal);
+            margin: 5% auto;
+            padding: 0;
+            border: 2px solid var(--exxo-gold);
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .modal-header {
+            background: var(--exxo-dark-gray);
+            padding: 2rem;
+            border-bottom: 1px solid var(--exxo-gold);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--exxo-gold);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            color: #aaa;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: var(--exxo-gold);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--exxo-dark-gray);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .modal-section h3 {
+            color: var(--exxo-gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section h4 {
+            color: var(--exxo-gold);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .modal-section p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            color: #cccccc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .company-info {
+            background: var(--exxo-black);
+            padding: 1rem;
+            border-left: 4px solid var(--exxo-gold);
+            margin: 1rem 0;
+        }
+
+        .company-info p {
+            color: white;
+            font-weight: 600;
+            margin: 0.25rem 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
@@ -688,6 +803,24 @@
 
             .product-content h2 {
                 font-size: 2.5rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+                max-height: 90vh;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
             }
         }
 
@@ -830,11 +963,11 @@
                 <div class="nav-text">Premium Getränke</div>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Startseite</a></li>
-                <li><a href="#product" class="nav-link">Produkt</a></li>
-                <li><a href="#nutrition" class="nav-link">Nährwerte</a></li>
-                <li><a href="#about" class="nav-link">Über uns</a></li>
-                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                <li><span class="nav-link" onclick="scrollToSection('home')">Startseite</span></li>
+                <li><span class="nav-link" onclick="scrollToSection('product')">Produkt</span></li>
+                <li><span class="nav-link" onclick="scrollToSection('nutrition')">Nährwerte</span></li>
+                <li><span class="nav-link" onclick="scrollToSection('about')">Über uns</span></li>
+                <li><span class="nav-link" onclick="scrollToSection('contact')">Kontakt</span></li>
             </ul>
         </div>
     </nav>
@@ -850,9 +983,9 @@
                 Die revolutionäre neue Kategorie von Erfrischungsgetränken. Exotische Früchte als erfrischende Limonade -
                 nicht nur als Saft. Pure Frische • Echter Geschmack • Unvergleichliches Erlebnis
             </p>
-            <a href="#product" class="hero-button">
+            <span class="hero-button" onclick="scrollToSection('product')">
                 <span>Jetzt entdecken</span>
-            </a>
+            </span>
         </div>
     </section>
 
@@ -1018,12 +1151,12 @@
         <div class="container">
             <h2 class="contact-title fade-in">Rechtliche Informationen</h2>
             <div class="contact-grid">
-                <a href="datenschutz.html" class="contact-link fade-in">
+                <span class="contact-link fade-in" onclick="openModal('datenschutz')">
                     Datenschutzerklärung
-                </a>
-                <a href="impressum.html" class="contact-link fade-in">
+                </span>
+                <span class="contact-link fade-in" onclick="openModal('impressum')">
                     Impressum
-                </a>
+                </span>
             </div>
         </div>
     </section>
@@ -1073,9 +1206,150 @@
         </div>
     </footer>
 
+    <!-- Datenschutz Modal -->
+    <div id="datenschutzModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">🛡️ Datenschutzerklärung</h2>
+                <span class="close" onclick="closeModal('datenschutz')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>1. Datenschutz auf einen Blick</h3>
+                    
+                    <h4>Allgemeine Hinweise</h4>
+                    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+
+                    <h4>Datenerfassung auf dieser Website</h4>
+                    <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+
+                    <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+                    Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in eine Kontaktanfrage eingeben.</p>
+
+                    <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+
+                    <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+                    Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+
+                    <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>2. Allgemeine Hinweise und Pflichtinformationen</h3>
+
+                    <h4>Datenschutz</h4>
+                    <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+
+                    <h4>Hinweis zur verantwortlichen Stelle</h4>
+                    <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+
+                    <div class="company-info">
+                        <p>Tzini UG (haftungsbeschränkt)</p>
+                        <p>Theodoros Georgiadis</p>
+                        <p>Bielefelder Str. 11</p>
+                        <p>33813 Oerlinghausen</p>
+                        <p>Telefon: +49 15773078966</p>
+                        <p>E-Mail: info@tzini.de</p>
+                    </div>
+
+                    <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>3. Datenerfassung auf dieser Website</h3>
+
+                    <h4>Server-Log-Dateien</h4>
+                    <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+
+                    <ul>
+                        <li>Browsertyp und Browserversion</li>
+                        <li>verwendetes Betriebssystem</li>
+                        <li>Referrer URL</li>
+                        <li>Hostname des zugreifenden Rechners</li>
+                        <li>Uhrzeit der Serveranfrage</li>
+                        <li>IP-Adresse</li>
+                    </ul>
+
+                    <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+
+                    <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem 0; border-top: 1px solid rgba(255, 215, 0, 0.2); color: #999999;">
+                    <p>Stand: <span class="current-date"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Impressum Modal -->
+    <div id="impressumModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">ℹ️ Impressum</h2>
+                <span class="close" onclick="closeModal('impressum')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Angaben gemäß § 5 TMG</h3>
+                    <div style="color: white; font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem;">Tzini UG (haftungsbeschränkt)</div>
+                    <div class="company-info">
+                        <p>Bielefelder Str. 11</p>
+                        <p>33813 Oerlinghausen</p>
+                        <p>Deutschland</p>
+                    </div>
+
+                    <h4>Vertreten durch</h4>
+                    <p>Theodoros Georgiadis, Geschäftsführer</p>
+
+                    <h4>Kontakt</h4>
+                    <div class="company-info">
+                        <p>Telefon: +49 15773078966</p>
+                        <p>E-Mail: info@tzini.de</p>
+                    </div>
+
+                    <h4>Registereintrag</h4>
+                    <div class="company-info">
+                        <p>Eintragung im Handelsregister</p>
+                        <p>Registergericht: Amtsgericht Lemgo</p>
+                        <p>Registernummer: HRB 11142</p>
+                    </div>
+
+                    <h4>Umsatzsteuer-ID</h4>
+                    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+                    <strong style="color: white;">DE364976576</strong></p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Haftungsausschluss</h3>
+
+                    <h4>Haftung für Inhalte</h4>
+                    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+                    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+                    <h4>Haftung für Links</h4>
+                    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+                    <h4>Urheberrecht</h4>
+                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem 0; border-top: 1px solid rgba(255, 215, 0, 0.2); color: #999999;">
+                    <p>Stand: <span class="current-date"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Set current year
+        // Set current year and date
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.querySelectorAll('.current-date').forEach(el => {
+            el.textContent = new Date().toLocaleDateString('de-DE');
+        });
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -1087,18 +1361,53 @@
             }
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Modal functions
+        function openModal(type) {
+            const modal = document.getElementById(type + 'Modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(type) {
+            const modal = document.getElementById(type + 'Modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
         });
 
         // Intersection Observer for scroll animations
