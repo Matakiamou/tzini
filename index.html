@@ -40,7 +40,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Navigation - Schlichter */
+        /* Navigation */
         .navbar {
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
@@ -110,7 +110,7 @@
             border-bottom-color: var(--exxo-gold);
         }
 
-        /* Hero Section - Eleganter */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -197,7 +197,7 @@
             box-shadow: 0 10px 20px rgba(196, 30, 58, 0.3);
         }
 
-        /* Sections - Schlichter */
+        /* Sections */
         .section {
             padding: 6rem 2rem;
             background: var(--exxo-charcoal);
@@ -297,7 +297,7 @@
             flex-shrink: 0;
         }
 
-        /* Cards - Schlichter */
+        /* Cards */
         .card {
             background: var(--exxo-dark-gray);
             border: 1px solid var(--exxo-gold);
@@ -416,7 +416,7 @@
             color: white;
         }
 
-        /* Legal Links - Funktionierend */
+        /* Legal Links */
         .legal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -495,18 +495,17 @@
             min-height: 100vh;
             background: var(--exxo-black);
             padding-top: 100px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
         .legal-header {
             background: var(--exxo-charcoal);
-            padding: 3rem 0;
+            padding: 3rem 2rem;
             border-bottom: 1px solid var(--exxo-gold);
-        }
-
-        .legal-header-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            margin: -2rem -2rem 2rem -2rem;
         }
 
         .back-link {
@@ -532,9 +531,7 @@
         }
 
         .legal-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2rem 0;
         }
 
         .legal-section {
@@ -542,6 +539,7 @@
             padding: 2rem;
             margin-bottom: 2rem;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 5px;
         }
 
         .legal-section h2 {
@@ -549,6 +547,14 @@
             font-weight: 600;
             color: var(--exxo-gold);
             margin-bottom: 1rem;
+        }
+
+        .legal-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--exxo-gold);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .legal-section p, .legal-section li {
@@ -559,6 +565,7 @@
 
         .legal-section ul {
             padding-left: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .legal-section .highlight {
@@ -571,6 +578,15 @@
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 215, 0, 0.2);
             color: #999;
+        }
+
+        /* Hidden Pages */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
         }
 
         /* Responsive */
@@ -633,15 +649,16 @@
             .legal-section {
                 padding: 1.5rem;
             }
-        }
 
-        /* Hidden Pages */
-        .page {
-            display: none;
-        }
+            .legal-page {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
 
-        .page.active {
-            display: block;
+            .legal-header {
+                margin: -1rem -1rem 2rem -1rem;
+                padding: 2rem 1rem;
+            }
         }
     </style>
 </head>
@@ -835,9 +852,7 @@
                 <h2 class="section-title gold-text">Rechtliche Informationen</h2>
                 <div class="legal-grid">
                     <a href="#" onclick="showPage('datenschutz')" class="legal-link">Datenschutzerklärung</a>
-                    <a href="#" onclick="showPage('agb')" class="legal-link">AGB</a>
                     <a href="#" onclick="showPage('impressum')" class="legal-link">Impressum</a>
-                    <a href="#" onclick="showPage('widerruf')" class="legal-link">Widerrufsrecht</a>
                 </div>
             </div>
         </section>
@@ -889,179 +904,155 @@
     </div>
 
     <!-- Datenschutz Page -->
-    <div id="datenschutz-page" class="page legal-page">
-        <div class="legal-header">
-            <div class="legal-header-content">
+    <div id="datenschutz-page" class="page">
+        <div class="legal-page">
+            <div class="legal-header">
                 <a href="#" onclick="showPage('main')" class="back-link">← Zurück zur Startseite</a>
                 <h1 class="legal-title">🛡️ Datenschutzerklärung</h1>
             </div>
-        </div>
-        <div class="legal-content">
-            <div class="legal-section">
-                <h2>Verantwortlicher</h2>
-                <p class="highlight">Tzini UG (haftungsbeschränkt)</p>
-                <p>Bielefelder Str. 11, 33813 Oerlinghausen</p>
-                <p>E-Mail: info@tzini.de | Telefon: +49 15773078966</p>
-            </div>
-            <div class="legal-section">
-                <h2>Datenerhebung</h2>
-                <p><strong class="highlight">Website-Besuch:</strong> IP-Adresse, Browsertyp, Zugriffsdaten</p>
-                <p><strong class="highlight">Kontakt:</strong> Name, E-Mail, Telefon, Nachrichteninhalt</p>
-                <p><strong class="highlight">Zweck:</strong> Website-Betrieb, Anfragenbearbeitung, LEH-Partnerschaften</p>
-            </div>
-            <div class="legal-section">
-                <h2>Ihre Rechte</h2>
-                <ul>
-                    <li>Auskunft über gespeicherte Daten</li>
-                    <li>Berichtigung unrichtiger Daten</li>
-                    <li>Löschung der Daten</li>
-                    <li>Widerspruch gegen Verarbeitung</li>
-                </ul>
-            </div>
-            <div class="legal-section">
-                <h2>Speicherdauer</h2>
-                <ul>
-                    <li>Server-Logs: 7 Tage</li>
-                    <li>Kontaktanfragen: 3 Jahre</li>
-                    <li>LEH-Anfragen: 5 Jahre</li>
-                </ul>
-            </div>
-            <div class="legal-footer">
-                <p>Stand: <span id="current-date-1"></span></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- AGB Page -->
-    <div id="agb-page" class="page legal-page">
-        <div class="legal-header">
-            <div class="legal-header-content">
-                <a href="#" onclick="showPage('main')" class="back-link">← Zurück zur Startseite</a>
-                <h1 class="legal-title">📄 Allgemeine Geschäftsbedingungen</h1>
-            </div>
-        </div>
-        <div class="legal-content">
-            <div class="legal-section">
-                <h2>Geltungsbereich</h2>
-                <p>Diese AGB gelten für alle Geschäftsbeziehungen zwischen Tzini UG und LEH-Partnern.</p>
-            </div>
-            <div class="legal-section">
-                <h2>Vertragspartner</h2>
-                <p class="highlight">Tzini UG (haftungsbeschränkt)</p>
-                <p>Bielefelder Str. 11, 33813 Oerlinghausen</p>
-                <p>HRB 11142, Amtsgericht Lemgo</p>
-            </div>
-            <div class="legal-section">
-                <h2>Preise & Zahlung</h2>
-                <ul>
-                    <li>Preise netto zzgl. MwSt.</li>
-                    <li>Zahlungsziel: 30 Tage netto</li>
-                    <li>Verzugszinsen: 9% über Basiszinssatz</li>
-                </ul>
-            </div>
-            <div class="legal-section">
-                <h2>Lieferung</h2>
-                <ul>
-                    <li>Lieferzeiten unverbindlich</li>
-                    <li>Teillieferungen zulässig</li>
-                    <li>Lieferung ab Werk auf Gefahr des Empfängers</li>
-                </ul>
-            </div>
-            <div class="legal-section">
-                <h2>Gewährleistung</h2>
-                <ul>
-                    <li>24 Monate ab Lieferung</li>
-                    <li>Deutsche Lebensmittelstandards</li>
-                    <li>Nacherfüllung durch Ersatzlieferung</li>
-                </ul>
-            </div>
-            <div class="legal-footer">
-                <p>Stand: <span id="current-date-2"></span></p>
+            <div class="legal-content">
+                <div class="legal-section">
+                    <h2>1. Datenschutz auf einen Blick</h2>
+                    
+                    <h3>Allgemeine Hinweise</h3>
+                    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+                    
+                    <h3>Datenerfassung auf dieser Website</h3>
+                    <p><strong class="highlight">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+                    
+                    <p><strong class="highlight">Wie erfassen wir Ihre Daten?</strong><br>
+                    Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in eine Kontaktanfrage eingeben.</p>
+                    
+                    <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+                    
+                    <p><strong class="highlight">Wofür nutzen wir Ihre Daten?</strong><br>
+                    Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+                    
+                    <p><strong class="highlight">Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</p>
+                </div>
+                
+                <div class="legal-section">
+                    <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
+                    
+                    <h3>Datenschutz</h3>
+                    <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+                    
+                    <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.</p>
+                    
+                    <h3>Hinweis zur verantwortlichen Stelle</h3>
+                    <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+                    
+                    <p class="highlight">Tzini UG (haftungsbeschränkt)<br>
+                    Theodoros Georgiadis<br>
+                    Bielefelder Str. 11<br>
+                    33813 Oerlinghausen</p>
+                    
+                    <p>Telefon: +49 15773078966<br>
+                    E-Mail: info@tzini.de</p>
+                    
+                    <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+                    
+                    <h3>Speicherdauer</h3>
+                    <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.</p>
+                    
+                    <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+                    <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+                    
+                    <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+                    <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
+                    
+                    <h3>SSL- bzw. TLS-Verschlüsselung</h3>
+                    <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+                    
+                    <p>Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
+                    
+                    <h3>Auskunft, Löschung und Berichtigung</h3>
+                    <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.</p>
+                </div>
+                
+                <div class="legal-section">
+                    <h2>3. Datenerfassung auf dieser Website</h2>
+                    
+                    <h3>Server-Log-Dateien</h3>
+                    <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+                    
+                    <ul>
+                        <li>Browsertyp und Browserversion</li>
+                        <li>verwendetes Betriebssystem</li>
+                        <li>Referrer URL</li>
+                        <li>Hostname des zugreifenden Rechners</li>
+                        <li>Uhrzeit der Serveranfrage</li>
+                        <li>IP-Adresse</li>
+                    </ul>
+                    
+                    <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+                    
+                    <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
+                </div>
+                
+                <div class="legal-footer">
+                    <p>Stand: <span id="current-date-1"></span></p>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Impressum Page -->
-    <div id="impressum-page" class="page legal-page">
-        <div class="legal-header">
-            <div class="legal-header-content">
+    <div id="impressum-page" class="page">
+        <div class="legal-page">
+            <div class="legal-header">
                 <a href="#" onclick="showPage('main')" class="back-link">← Zurück zur Startseite</a>
                 <h1 class="legal-title">ℹ️ Impressum</h1>
             </div>
-        </div>
-        <div class="legal-content">
-            <div class="legal-section">
-                <h2>Betreiber dieser Webseite</h2>
-                <p class="highlight">Tzini UG (haftungsbeschränkt)</p>
-                <p><strong class="highlight">Adresse:</strong></p>
-                <p>Bielefelder Str. 11</p>
-                <p>33813 Oerlinghausen</p>
-                <p>Deutschland</p>
-            </div>
-            <div class="legal-section">
-                <h2>Kontakt</h2>
-                <p><strong class="highlight">Telefon:</strong> +49 15773078966</p>
-                <p><strong class="highlight">E-Mail:</strong> info@tzini.de</p>
-            </div>
-            <div class="legal-section">
-                <h2>Registereintrag</h2>
-                <p><strong class="highlight">Registergericht:</strong> Amtsgericht Lemgo</p>
-                <p><strong class="highlight">Registernummer:</strong> HRB 11142</p>
-                <p><strong class="highlight">Umsatzsteuer-ID:</strong> DE364976576</p>
-            </div>
-            <div class="legal-section">
-                <h2>Vertretungsberechtigter Geschäftsführer</h2>
-                <p>Theodoros Georgiadis</p>
-            </div>
-            <div class="legal-section">
-                <h2>Haftungsausschluss</h2>
-                <p><strong class="highlight">Haftung für Inhalte:</strong> Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
-                <p><strong class="highlight">Haftung für Links:</strong> Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.</p>
-                <p><strong class="highlight">Urheberrecht:</strong> Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.</p>
-            </div>
-            <div class="legal-footer">
-                <p>Stand: <span id="current-date-3"></span></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Widerruf Page -->
-    <div id="widerruf-page" class="page legal-page">
-        <div class="legal-header">
-            <div class="legal-header-content">
-                <a href="#" onclick="showPage('main')" class="back-link">← Zurück zur Startseite</a>
-                <h1 class="legal-title">🔄 Widerrufsrecht</h1>
-            </div>
-        </div>
-        <div class="legal-content">
-            <div class="legal-section">
-                <h2>Widerrufsrecht</h2>
-                <p>Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen.</p>
-            </div>
-            <div class="legal-section">
-                <h2>Widerruf an</h2>
-                <p class="highlight">Tzini UG (haftungsbeschränkt)</p>
-                <p>Theodoros Georgiadis</p>
-                <p>Bielefelder Str. 11, 33813 Oerlinghausen</p>
-                <p>E-Mail: info@tzini.de | Tel: +49 15773078966</p>
-            </div>
-            <div class="legal-section">
-                <h2>Folgen des Widerrufs</h2>
-                <ul>
-                    <li>Rückzahlung aller Zahlungen binnen 14 Tagen</li>
-                    <li>Rücksendung der Waren binnen 14 Tagen</li>
-                    <li>Kunde trägt Kosten der Rücksendung</li>
-                </ul>
-            </div>
-            <div class="legal-section">
-                <h2>Muster-Widerruf</h2>
-                <p><em>Hiermit widerrufe ich den Vertrag über den Kauf folgender Waren:</em></p>
-                <p>Bestellt am: _____ / Erhalten am: _____</p>
-                <p>Name: _____ / Anschrift: _____</p>
-                <p>Datum: _____ / Unterschrift: _____</p>
-            </div>
-            <div class="legal-footer">
-                <p>Stand: <span id="current-date-4"></span></p>
+            <div class="legal-content">
+                <div class="legal-section">
+                    <h2>Angaben gemäß § 5 TMG</h2>
+                    <p class="highlight">Tzini UG (haftungsbeschränkt)</p>
+                    <p>Bielefelder Str. 11<br>
+                    33813 Oerlinghausen<br>
+                    Deutschland</p>
+                    
+                    <h3>Vertreten durch</h3>
+                    <p>Theodoros Georgiadis, Geschäftsführer</p>
+                    
+                    <h3>Kontakt</h3>
+                    <p>Telefon: +49 15773078966<br>
+                    E-Mail: info@tzini.de</p>
+                    
+                    <h3>Registereintrag</h3>
+                    <p>Eintragung im Handelsregister<br>
+                    Registergericht: Amtsgericht Lemgo<br>
+                    Registernummer: HRB 11142</p>
+                    
+                    <h3>Umsatzsteuer-ID</h3>
+                    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+                    DE364976576</p>
+                </div>
+                
+                <div class="legal-section">
+                    <h2>Haftungsausschluss</h2>
+                    
+                    <h3>Haftung für Inhalte</h3>
+                    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+                    
+                    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+                    
+                    <h3>Haftung für Links</h3>
+                    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+                    
+                    <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+                    
+                    <h3>Urheberrecht</h3>
+                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+                    
+                    <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+                </div>
+                
+                <div class="legal-footer">
+                    <p>Stand: <span id="current-date-2"></span></p>
+                </div>
             </div>
         </div>
     </div>
@@ -1113,8 +1104,6 @@
         const currentDate = new Date().toLocaleDateString("de-DE");
         document.getElementById('current-date-1').textContent = currentDate;
         document.getElementById('current-date-2').textContent = currentDate;
-        document.getElementById('current-date-3').textContent = currentDate;
-        document.getElementById('current-date-4').textContent = currentDate;
     </script>
 </body>
 </html>
