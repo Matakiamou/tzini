@@ -11,37 +11,681 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        :root {
-            --exxo-black: #0a0a0a;
-            --exxo-red: #C41E3A;
-            --exxo-red-dark: #A01729;
-            --exxo-gold: #FFD700;
-            --exxo-gold-light: #FFED4E;
-            --exxo-silver: #c0c0c0;
-            --exxo-silver-light: #e8e8e8;
-            --exxo-silver-dark: #808080;
-            --exxo-charcoal: #1a1a1a;
-            --exxo-dark-gray: #2a2a2a;
-            --exxo-light-gray: #cccccc;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--exxo-black);
-            color: white;
-            line-height: 1.6;
-            overflow-x: hidden;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        /* PREMIUM ANIMATIONS */
-        @keyframes luxuryFadeIn {
+        body {
+            font-family: "Arial", sans-serif;
+            overflow-x: hidden;
+            background-color: #0a0a0a;
+            color: white;
+        }
+
+        /* EXXO Colors */
+        :root {
+            --exxo-black: #0a0a0a;
+            --exxo-red: #C41E3A;
+            --exxo-red-dark: #A01729;
+            --exxo-gold: #FFD700;
+            --exxo-gold-light: #FFED4E;
+            --exxo-charcoal: #1a1a1a;
+            --exxo-dark-gray: #2a2a2a;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            transition: all 0.3s ease;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .nav-logo {
+            width: 80px;
+            height: 70px;
+            transition: transform 0.3s ease;
+            animation: elegantZoom 1.2s ease-out 0.3s both;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-divider {
+            width: 2px;
+            height: 48px;
+            background: linear-gradient(to bottom, var(--exxo-gold), var(--exxo-red));
+            animation: luxurySlideUp 1s ease-out 0.6s both;
+        }
+
+        .nav-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--exxo-gold);
+            letter-spacing: 0.05em;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: #cccccc;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--exxo-gold);
+            border-bottom-color: var(--exxo-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--exxo-black) 0%, var(--exxo-charcoal) 100%);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, rgba(196, 30, 58, 0.05) 50%, transparent 100%);
+            animation: premiumGlow 4s ease-in-out infinite;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 12vw, 9rem);
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, white, #cccccc, var(--exxo-gold));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: elegantZoom 1.2s ease-out 0.3s both;
+            text-shadow: 2px 2px 0px #a0a0a0, 4px 4px 0px #808080, 6px 6px 0px #606060, 8px 8px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--exxo-red);
+            margin-bottom: 1.5rem;
+            animation: luxurySlideUp 1s ease-out 0.6s both;
+            text-shadow: 0 0 10px rgba(196, 30, 58, 0.5), 0 0 20px rgba(196, 30, 58, 0.3), 0 0 30px rgba(196, 30, 58, 0.2);
+        }
+
+        .hero-tagline {
+            font-size: 2rem;
+            color: var(--exxo-gold);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: #cccccc;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            animation: luxurySlideUp 1s ease-out 1.2s both;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--exxo-red), var(--exxo-red-dark));
+            color: white;
+            border: 2px solid var(--exxo-gold);
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: premiumPulse 2s infinite 2s;
+        }
+
+        .hero-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hero-button:hover::before {
+            left: 100%;
+        }
+
+        .hero-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 6rem 0;
+            background: var(--exxo-charcoal);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .product-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .product-image-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.4s ease-out;
+        }
+
+        .product-image-container:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        .product-image {
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            transition: all 0.4s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .product-image-container:hover .product-image {
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.2));
+        }
+
+        .can-image {
+            width: 250px;
+            height: 400px;
+            animation: gentleFloat 8s ease-in-out infinite;
+        }
+
+        .bottle-image {
+            width: 180px;
+            height: 400px;
+            animation: gentleFloat 8s ease-in-out infinite 2s;
+        }
+
+        .product-glow {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            width: 70%;
+            height: 15%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 50%;
+            filter: blur(20px);
+        }
+
+        .can-glow {
+            background: rgba(196, 30, 58, 0.3);
+        }
+
+        .bottle-glow {
+            background: rgba(255, 215, 0, 0.3);
+        }
+
+        .product-image-container:hover .product-glow {
+            opacity: 1;
+        }
+
+        .product-content h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--exxo-red);
+            margin-bottom: 1rem;
+        }
+
+        .product-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--exxo-red);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-content p {
+            font-size: 1.125rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: #cccccc;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .feature-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--exxo-gold);
+            border-radius: 50%;
+            margin-top: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Nutrition Section */
+        .nutrition-section {
+            padding: 6rem 0;
+            background: var(--exxo-charcoal);
+        }
+
+        .nutrition-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .nutrition-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+        }
+
+        .nutrition-table {
+            background: var(--exxo-dark-gray);
+            border: 1px solid var(--exxo-gold);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nutrition-table:hover {
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+        }
+
+        .nutrition-header {
+            color: #cccccc;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .nutrition-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nutrition-row:last-child {
+            border-bottom: none;
+        }
+
+        .nutrition-row:hover {
+            background: rgba(255, 215, 0, 0.05);
+            padding-left: 1rem;
+        }
+
+        .nutrition-label {
+            color: #cccccc;
+        }
+
+        .nutrition-value {
+            color: white;
+            font-weight: 600;
+        }
+
+        .ingredients-card {
+            background: linear-gradient(135deg, var(--exxo-red), var(--exxo-red-dark));
+            border: 1px solid var(--exxo-gold);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .ingredients-card:hover {
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.2);
+        }
+
+        .ingredients-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--exxo-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredients-text {
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background: var(--exxo-charcoal);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+            margin-bottom: 2rem;
+        }
+
+        .about-highlight {
+            font-size: 1.25rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .about-conclusion {
+            font-size: 1.25rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, var(--exxo-red), var(--exxo-red-dark));
+            border: 1px solid var(--exxo-gold);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.2);
+        }
+
+        .team-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--exxo-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-member {
+            margin-bottom: 1rem;
+        }
+
+        .team-name {
+            font-weight: 600;
+            color: var(--exxo-gold);
+        }
+
+        .team-role {
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .team-mission {
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .mission-label {
+            font-weight: 600;
+            color: var(--exxo-gold);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-text {
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 0;
+            background: var(--exxo-charcoal);
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-link {
+            display: block;
+            padding: 2rem;
+            background: var(--exxo-dark-gray);
+            border: 1px solid var(--exxo-gold);
+            color: #cccccc;
+            text-align: center;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--exxo-black);
+            background: linear-gradient(135deg, var(--exxo-gold), #ffed4e);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 0;
+            background: var(--exxo-black);
+            border-top: 1px solid var(--exxo-gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--exxo-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: #cccccc;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-section .company-name {
+            color: white;
+            font-weight: 600;
+        }
+
+        .footer-section .hours {
+            color: white;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #999999;
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .product-grid,
+            .nutrition-grid,
+            .about-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-images {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .can-image,
+            .bottle-image {
+                width: 200px;
+                height: 320px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.25rem;
+            }
+
+            .product-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
             0% {
                 opacity: 0;
                 transform: translateY(30px) scale(0.95);
@@ -49,36 +693,6 @@
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes goldShimmer {
-            0% {
-                background-position: -200% center;
-            }
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-        @keyframes premiumGlow {
-            0% {
-                box-shadow: 
-                    0 0 20px rgba(255, 215, 0, 0.3),
-                    0 0 40px rgba(255, 215, 0, 0.2),
-                    0 0 60px rgba(255, 215, 0, 0.1);
-            }
-            50% {
-                box-shadow: 
-                    0 0 30px rgba(255, 215, 0, 0.5),
-                    0 0 60px rgba(255, 215, 0, 0.3),
-                    0 0 90px rgba(255, 215, 0, 0.2);
-            }
-            100% {
-                box-shadow: 
-                    0 0 20px rgba(255, 215, 0, 0.3),
-                    0 0 40px rgba(255, 215, 0, 0.2),
-                    0 0 60px rgba(255, 215, 0, 0.1);
             }
         }
 
@@ -101,6 +715,18 @@
             100% {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes premiumGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2), 0 0 60px rgba(255, 215, 0, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3), 0 0 90px rgba(255, 215, 0, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2), 0 0 60px rgba(255, 215, 0, 0.1);
             }
         }
 
@@ -128,1263 +754,374 @@
             }
         }
 
-        /* Navigation */
-        .navbar {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            animation: luxuryFadeIn 1s ease-out;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .logo-img {
-            width: 80px;
-            height: 70px;
-            transition: transform 0.3s ease;
-            animation: elegantZoom 1.2s ease-out 0.3s both;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-divider {
-            width: 2px;
-            height: 48px;
-            background: linear-gradient(to bottom, var(--exxo-gold), var(--exxo-red));
-            animation: luxurySlideUp 1s ease-out 0.6s both;
-        }
-
-        .premium-text {
-            font-size: 1.25rem;
-            color: var(--exxo-gold);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            animation: luxuryFadeIn 1s ease-out 0.9s both;
-            background: linear-gradient(
-                90deg,
-                var(--exxo-gold) 0%,
-                var(--exxo-gold-light) 50%,
-                var(--exxo-gold) 100%
-            );
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: luxuryFadeIn 1s ease-out 0.9s both, textShine 3s ease-in-out infinite;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            color: #ccc;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-            animation: luxuryFadeIn 1s ease-out calc(1.2s + var(--delay, 0s)) both;
-        }
-
-        .nav-link:nth-child(1) { --delay: 0.1s; }
-        .nav-link:nth-child(2) { --delay: 0.2s; }
-        .nav-link:nth-child(3) { --delay: 0.3s; }
-        .nav-link:nth-child(4) { --delay: 0.4s; }
-        .nav-link:nth-child(5) { --delay: 0.5s; }
-
-        .nav-link:hover {
-            color: var(--exxo-gold);
-            border-bottom-color: var(--exxo-gold);
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-
-        /* Hero Section - PREMIUM LUXURY */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, var(--exxo-black) 0%, var(--exxo-charcoal) 100%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(255, 215, 0, 0.1) 0%,
-                rgba(196, 30, 58, 0.05) 50%,
-                transparent 100%
-            );
-            animation: premiumGlow 4s ease-in-out infinite;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 1000px;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero-title {
-            font-size: 8rem;
-            font-weight: 900;
-            font-family: 'Arial Black', Impact, sans-serif;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-            background: linear-gradient(
-                145deg, 
-                #F8F8FF 0%, 
-                #E6E6FA 15%, 
-                #D3D3D3 30%, 
-                #C0C0C0 45%, 
-                #B8B8B8 60%, 
-                #C0C0C0 75%, 
-                #D3D3D3 90%, 
-                #FFD700 100%
-            );
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 
-                2px 2px 0px #A0A0A0,
-                4px 4px 0px #808080,
-                6px 6px 0px #606060,
-                8px 8px 15px rgba(0,0,0,0.8);
-            animation: 
-                elegantZoom 1.5s ease-out 0.5s both,
-                goldShimmer 4s ease-in-out infinite 2s;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
-        }
-
-        .hero-subtitle {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--exxo-red);
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
-            animation: luxurySlideUp 1.2s ease-out 1s both;
-            text-shadow: 
-                0 0 10px rgba(196, 30, 58, 0.5),
-                0 0 20px rgba(196, 30, 58, 0.3),
-                0 0 30px rgba(196, 30, 58, 0.2);
-        }
-
-        .hero-tagline {
-            font-size: 1.8rem;
-            color: var(--exxo-gold);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            animation: luxuryFadeIn 1s ease-out 1.5s both;
-            background: linear-gradient(
-                90deg,
-                var(--exxo-gold) 0%,
-                var(--exxo-gold-light) 50%,
-                var(--exxo-gold) 100%
-            );
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: 
-                luxuryFadeIn 1s ease-out 1.5s both,
-                textShine 3s ease-in-out infinite 3s;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            animation: luxurySlideUp 1s ease-out 2s both;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-button {
-            background: linear-gradient(135deg, var(--exxo-red) 0%, var(--exxo-red-dark) 100%);
-            color: white;
-            border: 2px solid var(--exxo-gold);
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            animation: 
-                luxuryFadeIn 1s ease-out 2.5s both,
-                premiumPulse 2s infinite 4s;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 5px 15px rgba(196, 30, 58, 0.3),
-                0 0 20px rgba(255, 215, 0, 0.2);
-        }
-
-        .hero-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 215, 0, 0.3),
-                transparent
-            );
-            transition: left 0.5s ease;
-        }
-
-        .hero-button:hover::before {
-            left: 100%;
-        }
-
-        .hero-button:hover {
-            background: linear-gradient(135deg, var(--exxo-red-dark) 0%, var(--exxo-red) 100%);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                0 10px 25px rgba(196, 30, 58, 0.4),
-                0 0 30px rgba(255, 215, 0, 0.3);
-            border-color: var(--exxo-gold-light);
-        }
-
-        /* Sections */
-        .section {
-            padding: 6rem 2rem;
-            background: var(--exxo-charcoal);
-            margin: 2rem 0;
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--exxo-red);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .gold-text {
-            color: var(--exxo-gold);
-            background: linear-gradient(
-                90deg,
-                var(--exxo-gold) 0%,
-                var(--exxo-gold-light) 50%,
-                var(--exxo-gold) 100%
-            );
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textShine 3s ease-in-out infinite;
-        }
-
-        /* Product Section */
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .product-images {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .product-img {
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-        }
-
-        .product-img:hover {
-            transform: scale(1.05);
-            filter: 
-                drop-shadow(0 15px 30px rgba(0,0,0,0.4))
-                drop-shadow(0 0 20px rgba(255, 215, 0, 0.2));
-        }
-
-        .can-img {
-            width: 250px;
-            height: auto;
-        }
-
-        .bottle-img {
-            width: 180px;
-            height: auto;
-        }
-
-        .product-info h2 {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--exxo-red);
-            margin-bottom: 1rem;
-            text-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
-        }
-
-        .product-subtitle {
-            font-size: 1.3rem;
-            color: var(--exxo-red);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-description {
-            font-size: 1.1rem;
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 0.5rem 0;
-            color: #ccc;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .feature-bullet {
-            width: 8px;
-            height: 8px;
-            background-color: var(--exxo-gold);
-            border-radius: 50%;
-            margin-top: 0.7rem;
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-
-        /* Cards */
-        .card {
-            background: var(--exxo-dark-gray);
-            border: 1px solid var(--exxo-gold);
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .card-title {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--exxo-gold);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        /* Nutrition Table */
-        .nutrition-header {
-            font-size: 1rem;
-            color: #ccc;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .nutrition-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .nutrition-row:hover {
-            background: rgba(255, 215, 0, 0.05);
-            padding-left: 10px;
-        }
-
-        .nutrition-row:last-child {
-            border-bottom: none;
-        }
-
-        .nutrition-label {
-            color: #ccc;
-        }
-
-        .nutrition-value {
-            color: white;
-            font-weight: 600;
-        }
-
-        /* Red Card */
-        .red-card {
-            background: linear-gradient(135deg, var(--exxo-red) 0%, var(--exxo-red-dark) 100%);
-            border: 1px solid var(--exxo-gold);
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
-        }
-
-        .red-card:hover {
-            box-shadow: 
-                0 10px 25px rgba(196, 30, 58, 0.4),
-                0 0 20px rgba(255, 215, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .ingredients-text {
-            color: white;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-paragraph {
-            font-size: 1rem;
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-highlight {
-            font-size: 1.1rem;
-            color: white;
-            font-weight: 600;
-        }
-
-        /* Team Card */
-        .team-card {
-            background: linear-gradient(135deg, var(--exxo-red) 0%, var(--exxo-red-dark) 100%);
-            border: 1px solid var(--exxo-gold);
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
-        }
-
-        .team-card:hover {
-            box-shadow: 
-                0 10px 25px rgba(196, 30, 58, 0.4),
-                0 0 20px rgba(255, 215, 0, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .team-member {
-            margin-bottom: 1rem;
-        }
-
-        .team-name {
-            font-weight: 600;
-            color: var(--exxo-gold);
-        }
-
-        .team-role {
-            font-size: 0.9rem;
-            color: white;
-        }
-
-        .team-mission {
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.3);
-            margin-top: 1rem;
-        }
-
-        .mission-title {
-            font-weight: 600;
-            color: var(--exxo-gold);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .mission-text {
-            font-size: 0.9rem;
-            color: white;
-        }
-
-        /* Legal Links */
-        .legal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
-        .legal-link {
-            display: block;
-            padding: 1.5rem;
-            background: var(--exxo-dark-gray);
-            border: 1px solid var(--exxo-gold);
-            color: #ccc;
-            text-decoration: none;
-            text-align: center;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .legal-link:hover {
-            color: var(--exxo-black);
-            background: linear-gradient(135deg, var(--exxo-gold) 0%, var(--exxo-gold-light) 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 4rem 2rem;
-            background: var(--exxo-black);
-            border-top: 1px solid var(--exxo-gold);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--exxo-gold);
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            color: #ccc;
-            margin-bottom: 0.3rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-section .highlight {
-            font-weight: 600;
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            padding-top: 1.5rem;
-            text-align: center;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom p {
-            margin-bottom: 0.3rem;
-        }
-
-        /* Legal Pages */
-        .legal-page {
-            min-height: 100vh;
-            background: var(--exxo-black);
-            padding-top: 100px;
-            max-width: 800px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .legal-header {
-            background: var(--exxo-charcoal);
-            padding: 3rem 2rem;
-            border-bottom: 1px solid var(--exxo-gold);
-            margin: -2rem -2rem 2rem -2rem;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--exxo-gold);
-            text-decoration: none;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: white;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-
-        .legal-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--exxo-gold);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .legal-content {
-            padding: 2rem 0;
-        }
-
-        .legal-section {
-            background: var(--exxo-charcoal);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .legal-section:hover {
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
-        }
-
-        .legal-section h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--exxo-gold);
-            margin-bottom: 1rem;
-        }
-
-        .legal-section h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--exxo-gold);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-section p, .legal-section li {
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-section ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .legal-section .highlight {
-            font-weight: 600;
-            color: white;
-        }
-
-        .legal-footer {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
-            color: #999;
-        }
-
-        /* Hidden Pages */
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+        @keyframes gentleFloat {
+            0% {
+                transform: translateY(0px);
             }
-
-            .hero-title {
-                font-size: 4rem;
+            50% {
+                transform: translateY(-8px);
             }
-
-            .hero-subtitle {
-                font-size: 2.5rem;
-            }
-
-            .hero-tagline {
-                font-size: 1.3rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .can-img {
-                width: 180px;
-            }
-
-            .bottle-img {
-                width: 130px;
-            }
-
-            .legal-title {
-                font-size: 2rem;
-            }
-
-            .legal-section {
-                padding: 1.5rem;
-            }
-
-            .legal-page {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            .legal-header {
-                margin: -1rem -1rem 2rem -1rem;
-                padding: 2rem 1rem;
+            100% {
+                transform: translateY(0px);
             }
         }
 
-        /* Loading Animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--exxo-black);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeOut 0.5s ease-out 3s both;
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
         }
 
-        .loading-logo {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--exxo-gold);
-            animation: premiumPulse 1s infinite;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease-out;
+        }
+
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease-out;
+        }
+
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease-out;
+        }
+
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-overlay">
-        <div class="loading-logo">EXXO</div>
-    </div>
-
-    <!-- Main Page -->
-    <div id="main-page" class="page active">
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/TZINI_LOGO_KLEINer-removebg-preview.png" alt="Tzini UG - Hersteller" class="logo-img">
-                    <div class="logo-divider"></div>
-                    <div class="premium-text">Premium Getränke</div>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link">Startseite</a></li>
-                    <li><a href="#product" class="nav-link">Produkt</a></li>
-                    <li><a href="#nutrition" class="nav-link">Nährwerte</a></li>
-                    <li><a href="#about" class="nav-link">Über uns</a></li>
-                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
-                </ul>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/TZINI_LOGO_KLEINer-removebg-preview.png" 
+                     alt="Tzini UG - Hersteller" class="nav-logo">
+                <div class="nav-divider"></div>
+                <div class="nav-text">Premium Getränke</div>
             </div>
-        </nav>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Startseite</a></li>
+                <li><a href="#product" class="nav-link">Produkt</a></li>
+                <li><a href="#nutrition" class="nav-link">Nährwerte</a></li>
+                <li><a href="#about" class="nav-link">Über uns</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!-- Hero Section - PREMIUM LUXURY ANIMATIONS -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">EXXO</h1>
-                <div class="hero-subtitle">POMA FIZZ</div>
-                <div class="hero-tagline">Premium Granatapfellimonade</div>
-                <p class="hero-description">
-                    Die revolutionäre neue Kategorie von Erfrischungsgetränken. Exotische Früchte als erfrischende Limonade -
-                    nicht nur als Saft. Pure Frische • Echter Geschmack • Unvergleichliches Erlebnis
-                </p>
-                <a href="#product" class="hero-button">Jetzt entdecken</a>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">EXXO</h1>
+            <div class="hero-subtitle">POMA FIZZ</div>
+            <div class="hero-tagline">Premium Granatapfellimonade</div>
+            <p class="hero-description">
+                Die revolutionäre neue Kategorie von Erfrischungsgetränken. Exotische Früchte als erfrischende Limonade -
+                nicht nur als Saft. Pure Frische • Echter Geschmack • Unvergleichliches Erlebnis
+            </p>
+            <a href="#product" class="hero-button">
+                <span>Jetzt entdecken</span>
+            </a>
+        </div>
+    </section>
 
-        <!-- Product Section -->
-        <section id="product" class="section">
-            <div class="section-content">
-                <div class="product-grid">
-                    <div class="product-images">
-                        <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/exxo-can.png" alt="EXXO POMA FIZZ Dose" class="product-img can-img">
-                        <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/top%20new.png" alt="EXXO POMA FIZZ Flasche" class="product-img bottle-img">
+    <!-- Product Section -->
+    <section id="product" class="product-section">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-images">
+                    <div class="product-image-container zoom-in">
+                        <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/exxo-can.png" 
+                             alt="EXXO POMA FIZZ Dose" class="product-image can-image">
+                        <div class="product-glow can-glow"></div>
                     </div>
-                    <div class="product-info">
-                        <h2>POMA FIZZ</h2>
-                        <div class="product-subtitle">Die Revolution der Erfrischung</div>
-                        <p class="product-description">
-                            EXXO POMA FIZZ ist mehr als nur ein Getränk - es ist eine Vision. Wir haben die Lücke im Markt erkannt:
-                            Exotische Früchte, die Menschen gerne essen, endlich als erfrischende Limonade verfügbar zu machen,
-                            nicht nur als Saft.
-                        </p>
-                        <ul class="feature-list">
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>100% natürlicher Granatapfelgeschmack aus Konzentrat</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>Perfekt ausbalanzierte Kohlensäure für optimale Erfrischung</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>Premium Qualität ohne Kompromisse</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>Einzigartiges Geschmackserlebnis der exotischen Frucht</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>Sorgfältig ausgewählte, natürliche Zutaten</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>Innovative Rezeptur für den globalen Markt</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>Verfügbar als Dose und 500ml PET-Flasche</span>
-                            </li>
-                            <li class="feature-item">
-                                <div class="feature-bullet"></div>
-                                <span>Der erste Schritt in eine neue Ära der Erfrischung</span>
-                            </li>
-                        </ul>
+                    <div class="product-image-container zoom-in">
+                        <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/top%20new.png" 
+                             alt="EXXO POMA FIZZ Flasche" class="product-image bottle-image">
+                        <div class="product-glow bottle-glow"></div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Nutrition Section -->
-        <section id="nutrition" class="section">
-            <div class="section-content">
-                <div class="product-grid">
-                    <div>
-                        <h3 class="section-title gold-text">Nährwertangaben</h3>
-                        <div class="card">
-                            <div class="nutrition-header">Durchschnittlicher Gehalt pro 100ml:</div>
-                            <div class="nutrition-row">
-                                <span class="nutrition-label">Brennwert</span>
-                                <span class="nutrition-value">116 kJ / 27 kcal</span>
-                            </div>
-                            <div class="nutrition-row">
-                                <span class="nutrition-label">Fett</span>
-                                <span class="nutrition-value">0 g</span>
-                            </div>
-                            <div class="nutrition-row">
-                                <span class="nutrition-label">Kohlenhydrate</span>
-                                <span class="nutrition-value">6,5 g</span>
-                            </div>
-                            <div class="nutrition-row">
-                                <span class="nutrition-label">davon Zucker</span>
-                                <span class="nutrition-value">6,5 g</span>
-                            </div>
-                            <div class="nutrition-row">
-                                <span class="nutrition-label">Eiweiß</span>
-                                <span class="nutrition-value">0 g</span>
-                            </div>
-                            <div class="nutrition-row">
-                                <span class="nutrition-label">Salz</span>
-                                <span class="nutrition-value">0,003 g</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="red-card">
-                        <h3 class="card-title">Zutaten</h3>
-                        <p class="ingredients-text">
-                            Wasser, Zucker, Zitronensaftkonzentrat, Kohlensäure, Granatapfelkonzentrat, färbendes Konzentrat aus
-                            Karotte, Säuerungsmittel (Äpfelsäure, Citronensäure), natürliches Aroma
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="section-content">
-                <div class="about-grid">
-                    <div>
-                        <h2 class="section-title gold-text">Über EXXO</h2>
-                        <p class="about-highlight">
-                            Wir haben die Lücke gesucht und gefunden: Was gibt es noch nicht in der Form von Limonaden?
-                        </p>
-                        <p class="about-paragraph">
-                            Wir haben geforscht und sind auf den Gedanken gekommen, dass exotische Früchte, die sehr viele
-                            Menschen gerne essen, auch als Limonade getrunken werden möchten - und nicht nur als Saft. Diese
-                            Vision führte zur Geburt von EXXO.
-                        </p>
-                        <p class="about-paragraph">
-                            Wir möchten zunächst mit POMA FIZZ anfangen, weil wir denken, dass Granatapfel eine Frucht ist, die
-                            sehr geliebt wird. Unser Ziel ist es, zunächst den deutschen Markt zu erobern, dann die EU und
-                            schließlich die ganze Welt.
-                        </p>
-                        <p class="about-highlight">
-                            EXXO repräsentiert eine völlig neue Ära von Premium-Erfrischungsgetränken - die Zukunft des
-                            authentischen Geschmacks.
-                        </p>
-                    </div>
-                    <div class="team-card">
-                        <h3 class="card-title">Unser Team</h3>
-                        <div class="team-member">
-                            <p class="team-name">Theodoros Georgiadis</p>
-                            <p class="team-role">Geschäftsführer & Visionär</p>
-                        </div>
-                        <div class="team-member">
-                            <p class="team-name">Tzini UG</p>
-                            <p class="team-role">Hersteller & Produzent</p>
-                        </div>
-                        <div class="team-member">
-                            <p class="team-name">EXXO</p>
-                            <p class="team-role">Premium Getränkemarke</p>
-                        </div>
-                        <div class="team-mission">
-                            <p class="mission-title">Unsere Mission:</p>
-                            <p class="mission-text">
-                                Innovation für den globalen Getränkemarkt durch exotische Früchte als erfrischende Limonaden
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <div class="section-content">
-                <h2 class="section-title gold-text">Rechtliche Informationen</h2>
-                <div class="legal-grid">
-                    <a href="#" onclick="showPage('datenschutz')" class="legal-link">Datenschutzerklärung</a>
-                    <a href="#" onclick="showPage('impressum')" class="legal-link">Impressum</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-grid">
-                    <div class="footer-section">
-                        <h3>EXXO</h3>
-                        <p>Premium Erfrischungsgetränke der nächsten Generation</p>
-                        <p>Exotische Früchte als revolutionäre Limonaden</p>
-                        <p>Innovation für den globalen Markt</p>
-                        <p>Produziert von Tzini UG</p>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Hersteller</h3>
-                        <p class="highlight">Tzini UG (haftungsbeschränkt)</p>
-                        <p>Geschäftsführer: Theodoros Georgiadis</p>
-                        <p>Bielefelder Str. 11</p>
-                        <p>33813 Oerlinghausen</p>
-                        <p>Tel: +49 15773078966</p>
-                        <p>E-Mail: info@tzini.de</p>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Produktlinie</h3>
-                        <p>EXXO POMA FIZZ - Granatapfel</p>
-                        <p>Weitere exotische Sorten in Planung</p>
-                        <p>Premium Qualität garantiert</p>
-                        <p>Nachhaltige Produktion</p>
-                        <p>Lieferzeit: 2-5 Werktage nach Produktion</p>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Unternehmen</h3>
-                        <p>HRB 11142, Amtsgericht Lemgo</p>
-                        <p>USt-IdNr.: DE364976576</p>
-                        <p>IHK Arnsberg</p>
-                        <p>Versichert bei: Nürnberger Versicherung</p>
-                        <p class="highlight">Öffnungszeiten: Mo-Fr 9:00-16:00</p>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2024 EXXO. Alle Rechte vorbehalten.</p>
-                    <p>Hersteller: Tzini UG (haftungsbeschränkt) | Geschäftsführer: Theodoros Georgiadis</p>
-                    <p>Bielefelder Str. 11, 33813 Oerlinghausen | Tel: +49 15773078966 | E-Mail: info@tzini.de</p>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Datenschutz Page -->
-    <div id="datenschutz-page" class="page">
-        <div class="legal-page">
-            <div class="legal-header">
-                <a href="#" onclick="showPage('main')" class="back-link">← Zurück zur Startseite</a>
-                <h1 class="legal-title">🛡️ Datenschutzerklärung</h1>
-            </div>
-            <div class="legal-content">
-                <div class="legal-section">
-                    <h2>1. Datenschutz auf einen Blick</h2>
-                    
-                    <h3>Allgemeine Hinweise</h3>
-                    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-                    
-                    <h3>Datenerfassung auf dieser Website</h3>
-                    <p><strong class="highlight">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
-                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
-                    
-                    <p><strong class="highlight">Wie erfassen wir Ihre Daten?</strong><br>
-                    Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in eine Kontaktanfrage eingeben.</p>
-                    
-                    <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
-                    
-                    <p><strong class="highlight">Wofür nutzen wir Ihre Daten?</strong><br>
-                    Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
-                    
-                    <p><strong class="highlight">Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
-                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</p>
-                </div>
-                
-                <div class="legal-section">
-                    <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
-                    
-                    <h3>Datenschutz</h3>
-                    <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-                    
-                    <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.</p>
-                    
-                    <h3>Hinweis zur verantwortlichen Stelle</h3>
-                    <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-                    
-                    <p class="highlight">Tzini UG (haftungsbeschränkt)<br>
-                    Theodoros Georgiadis<br>
-                    Bielefelder Str. 11<br>
-                    33813 Oerlinghausen</p>
-                    
-                    <p>Telefon: +49 15773078966<br>
-                    E-Mail: info@tzini.de</p>
-                    
-                    <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
-                    
-                    <h3>Speicherdauer</h3>
-                    <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.</p>
-                    
-                    <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
-                    <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
-                    
-                    <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
-                    <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
-                    
-                    <h3>SSL- bzw. TLS-Verschlüsselung</h3>
-                    <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
-                    
-                    <p>Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
-                    
-                    <h3>Auskunft, Löschung und Berichtigung</h3>
-                    <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.</p>
-                </div>
-                
-                <div class="legal-section">
-                    <h2>3. Datenerfassung auf dieser Website</h2>
-                    
-                    <h3>Server-Log-Dateien</h3>
-                    <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
-                    
-                    <ul>
-                        <li>Browsertyp und Browserversion</li>
-                        <li>verwendetes Betriebssystem</li>
-                        <li>Referrer URL</li>
-                        <li>Hostname des zugreifenden Rechners</li>
-                        <li>Uhrzeit der Serveranfrage</li>
-                        <li>IP-Adresse</li>
+                <div class="product-content slide-right">
+                    <h2>POMA FIZZ</h2>
+                    <div class="subtitle">Die Revolution der Erfrischung</div>
+                    <p>
+                        EXXO POMA FIZZ ist mehr als nur ein Getränk - es ist eine Vision. Wir haben die Lücke im Markt erkannt:
+                        Exotische Früchte, die Menschen gerne essen, endlich als erfrischende Limonade verfügbar zu machen,
+                        nicht nur als Saft.
+                    </p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>100% natürlicher Granatapfelgeschmack aus Konzentrat</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Perfekt ausbalanzierte Kohlensäure für optimale Erfrischung</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Premium Qualität ohne Kompromisse</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Einzigartiges Geschmackserlebnis der exotischen Frucht</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Sorgfältig ausgewählte, natürliche Zutaten</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Innovative Rezeptur für den globalen Markt</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Verfügbar als 330ml Dose und 500ml PET-Flasche</span>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-dot"></div>
+                            <span>Der erste Schritt in eine neue Ära der Erfrischung</span>
+                        </li>
                     </ul>
-                    
-                    <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
-                    
-                    <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
-                </div>
-                
-                <div class="legal-footer">
-                    <p>Stand: <span id="current-date-1"></span></p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Impressum Page -->
-    <div id="impressum-page" class="page">
-        <div class="legal-page">
-            <div class="legal-header">
-                <a href="#" onclick="showPage('main')" class="back-link">← Zurück zur Startseite</a>
-                <h1 class="legal-title">ℹ️ Impressum</h1>
-            </div>
-            <div class="legal-content">
-                <div class="legal-section">
-                    <h2>Angaben gemäß § 5 TMG</h2>
-                    <p class="highlight">Tzini UG (haftungsbeschränkt)</p>
-                    <p>Bielefelder Str. 11<br>
-                    33813 Oerlinghausen<br>
-                    Deutschland</p>
-                    
-                    <h3>Vertreten durch</h3>
-                    <p>Theodoros Georgiadis, Geschäftsführer</p>
-                    
-                    <h3>Kontakt</h3>
-                    <p>Telefon: +49 15773078966<br>
-                    E-Mail: info@tzini.de</p>
-                    
-                    <h3>Registereintrag</h3>
-                    <p>Eintragung im Handelsregister<br>
-                    Registergericht: Amtsgericht Lemgo<br>
-                    Registernummer: HRB 11142</p>
-                    
-                    <h3>Umsatzsteuer-ID</h3>
-                    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
-                    DE364976576</p>
+    <!-- Nutrition Section -->
+    <section id="nutrition" class="nutrition-section">
+        <div class="container">
+            <div class="nutrition-grid">
+                <div class="fade-in">
+                    <h3 class="nutrition-title">Nährwertangaben</h3>
+                    <div class="nutrition-table">
+                        <div class="nutrition-header">Durchschnittlicher Gehalt pro 100ml:</div>
+                        <div class="nutrition-row">
+                            <span class="nutrition-label">Brennwert</span>
+                            <span class="nutrition-value">116 kJ / 27 kcal</span>
+                        </div>
+                        <div class="nutrition-row">
+                            <span class="nutrition-label">Fett</span>
+                            <span class="nutrition-value">0 g</span>
+                        </div>
+                        <div class="nutrition-row">
+                            <span class="nutrition-label">Kohlenhydrate</span>
+                            <span class="nutrition-value">6,5 g</span>
+                        </div>
+                        <div class="nutrition-row">
+                            <span class="nutrition-label">davon Zucker</span>
+                            <span class="nutrition-value">6,5 g</span>
+                        </div>
+                        <div class="nutrition-row">
+                            <span class="nutrition-label">Eiweiß</span>
+                            <span class="nutrition-value">0 g</span>
+                        </div>
+                        <div class="nutrition-row">
+                            <span class="nutrition-label">Salz</span>
+                            <span class="nutrition-value">0,003 g</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="legal-section">
-                    <h2>Haftungsausschluss</h2>
-                    
-                    <h3>Haftung für Inhalte</h3>
-                    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
-                    
-                    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
-                    
-                    <h3>Haftung für Links</h3>
-                    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
-                    
-                    <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
-                    
-                    <h3>Urheberrecht</h3>
-                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
-                    
-                    <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
-                </div>
-                
-                <div class="legal-footer">
-                    <p>Stand: <span id="current-date-2"></span></p>
+                <div class="ingredients-card fade-in">
+                    <h3 class="ingredients-title">Zutaten</h3>
+                    <p class="ingredients-text">
+                        Wasser, Zucker, Zitronensaftkonzentrat, Kohlensäure, Granatapfelkonzentrat, färbendes Konzentrat aus
+                        Karotte, Säuerungsmittel (Äpfelsäure, Citronensäure), natürliches Aroma
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="slide-left">
+                    <h2 class="about-title">Über EXXO</h2>
+                    <p class="about-highlight">
+                        Wir haben die Lücke gesucht und gefunden: Was gibt es noch nicht in der Form von Limonaden?
+                    </p>
+                    <p class="about-text">
+                        Wir haben geforscht und sind auf den Gedanken gekommen, dass exotische Früchte, die sehr viele Menschen
+                        gerne essen, auch als Limonade getrunken werden möchten - und nicht nur als Saft. Diese Vision führte
+                        zur Geburt von EXXO.
+                    </p>
+                    <p class="about-text">
+                        Wir möchten zunächst mit POMA FIZZ anfangen, weil wir denken, dass Granatapfel eine Frucht ist, die sehr
+                        geliebt wird. Unser Ziel ist es, zunächst den deutschen Markt zu erobern, dann die EU und schließlich
+                        die ganze Welt.
+                    </p>
+                    <p class="about-conclusion">
+                        EXXO repräsentiert eine völlig neue Ära von Premium-Erfrischungsgetränken - die Zukunft des
+                        authentischen Geschmacks.
+                    </p>
+                </div>
+                <div class="team-card slide-right">
+                    <h3 class="team-title">Unser Team</h3>
+                    <div class="team-member">
+                        <p class="team-name">Theodoros Georgiadis</p>
+                        <p class="team-role">Geschäftsführer & Visionär</p>
+                    </div>
+                    <div class="team-member">
+                        <p class="team-name">Tzini UG</p>
+                        <p class="team-role">Hersteller & Produzent</p>
+                    </div>
+                    <div class="team-member">
+                        <p class="team-name">EXXO</p>
+                        <p class="team-role">Premium Getränkemarke</p>
+                    </div>
+                    <div class="team-mission">
+                        <p class="mission-label">Unsere Mission:</p>
+                        <p class="mission-text">
+                            Innovation für den globalen Getränkemarkt durch exotische Früchte als erfrischende Limonaden
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="contact-title fade-in">Rechtliche Informationen</h2>
+            <div class="contact-grid">
+                <a href="datenschutz.html" class="contact-link fade-in">
+                    Datenschutzerklärung
+                </a>
+                <a href="impressum.html" class="contact-link fade-in">
+                    Impressum
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>EXXO</h3>
+                    <p>Premium Erfrischungsgetränke der nächsten Generation</p>
+                    <p>Exotische Früchte als revolutionäre Limonaden</p>
+                    <p>Innovation für den globalen Markt</p>
+                    <p>Produziert von Tzini UG</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Hersteller</h3>
+                    <p class="company-name">Tzini UG (haftungsbeschränkt)</p>
+                    <p>Geschäftsführer: Theodoros Georgiadis</p>
+                    <p>Bielefelder Str. 11</p>
+                    <p>33813 Oerlinghausen</p>
+                    <p>Tel: +49 15773078966</p>
+                    <p>E-Mail: info@tzini.de</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Produktlinie</h3>
+                    <p>EXXO POMA FIZZ - Granatapfel</p>
+                    <p>Weitere exotische Sorten in Planung</p>
+                    <p>Premium Qualität garantiert</p>
+                    <p>Nachhaltige Produktion</p>
+                    <p>Lieferzeit: 2-5 Werktage nach Produktion</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Unternehmen</h3>
+                    <p>HRB 11142, Amtsgericht Lemgo</p>
+                    <p>USt-IdNr.: DE364976576</p>
+                    <p>IHK Arnsberg</p>
+                    <p>Versichert bei: Nürnberger Versicherung</p>
+                    <p class="hours">Öffnungszeiten: Mo-Fr 9:00-16:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> EXXO. Alle Rechte vorbehalten.</p>
+                <p>Hersteller: Tzini UG (haftungsbeschränkt) | Geschäftsführer: Theodoros Georgiadis</p>
+                <p>Bielefelder Str. 11, 33813 Oerlinghausen | Tel: +49 15773078966 | E-Mail: info@tzini.de</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Page Navigation
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            const targetPage = document.getElementById(pageId + '-page');
-            if (targetPage) {
-                targetPage.classList.add('active');
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href').startsWith('#') && !this.onclick) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-            } else {
-                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-            }
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in, .slide-left, .slide-right, .zoom-in').forEach(el => {
+            observer.observe(el);
         });
 
-        // Set current date
-        const currentDate = new Date().toLocaleDateString("de-DE");
-        document.getElementById('current-date-1').textContent = currentDate;
-        document.getElementById('current-date-2').textContent = currentDate;
+        // Add staggered animation delays for feature items
+        document.querySelectorAll('.feature-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add staggered animation delays for nutrition rows
+        document.querySelectorAll('.nutrition-row').forEach((row, index) => {
+            row.style.transitionDelay = `${index * 0.1}s`;
+        });
     </script>
 </body>
-</html>
+</html>   
