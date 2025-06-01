@@ -18,7 +18,8 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Arial", sans-serif;
+            overflow-x: hidden;
             background-color: #0a0a0a;
             color: white;
         }
@@ -40,8 +41,15 @@
             top: 0;
             width: 100%;
             z-index: 50;
+            transition: all 0.3s ease;
             background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.05);
         }
 
         .nav-container {
@@ -57,23 +65,38 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            animation: fadeIn 1s ease-out;
         }
 
         .nav-logo {
             width: 80px;
             height: 70px;
+            transition: transform 0.3s ease;
+            animation: elegantZoom 1.2s ease-out 0.3s both;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-divider {
             width: 2px;
             height: 48px;
             background: linear-gradient(to bottom, var(--exxo-gold), var(--exxo-red));
+            animation: luxurySlideUp 1s ease-out 0.6s both;
         }
 
         .nav-text {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--exxo-gold);
+            letter-spacing: 0.05em;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
         }
 
         .nav-menu {
@@ -115,6 +138,18 @@
             border-radius: 2px;
         }
 
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -123,6 +158,7 @@
             max-width: 300px;
             height: 100vh;
             background: linear-gradient(135deg, var(--exxo-black), var(--exxo-charcoal));
+            backdrop-filter: blur(20px);
             border-left: 2px solid var(--exxo-gold);
             transition: right 0.4s ease;
             z-index: 55;
@@ -140,6 +176,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -169,7 +206,7 @@
             padding-left: 2.5rem;
         }
 
-        /* Hero Section */
+        /* Hero Section - ALLE EFFEKTE KOMBINIERT */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -177,19 +214,15 @@
             justify-content: center;
             position: relative;
             background: linear-gradient(135deg, var(--exxo-black) 0%, var(--exxo-charcoal) 100%);
-            padding-top: 80px;
             overflow: hidden;
+            padding-top: 80px;
         }
 
-        /* Epic Background Effects */
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at center, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
-            animation: epicGlow 6s ease-in-out infinite;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, rgba(196, 30, 58, 0.05) 50%, transparent 100%);
+            animation: premiumGlow 4s ease-in-out infinite;
         }
 
         .hero-content {
@@ -200,63 +233,17 @@
             z-index: 10;
         }
 
-        /* LEGENDARY EXXO TITLE */
         .hero-title {
             font-size: clamp(4rem, 12vw, 9rem);
             font-weight: 900;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.1em;
             margin-bottom: 1rem;
-            position: relative;
-            
-            /* Epic 3D Text Effect */
-            background: linear-gradient(45deg, 
-                #ffffff 0%, 
-                var(--exxo-gold) 25%, 
-                #ffffff 50%, 
-                var(--exxo-gold-light) 75%, 
-                #ffffff 100%);
-            background-size: 400% 400%;
+            background: linear-gradient(to right, white, #cccccc, var(--exxo-gold));
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            /* Dramatic 3D Shadow */
-            text-shadow: 
-                3px 3px 0px #a0a0a0,
-                6px 6px 0px #808080,
-                9px 9px 0px #606060,
-                12px 12px 0px #404040,
-                15px 15px 30px rgba(0, 0, 0, 0.8),
-                0 0 50px rgba(255, 215, 0, 0.5),
-                0 0 100px rgba(255, 215, 0, 0.3);
-            
-            /* Cinematic Entrance */
-            animation: 
-                cinematicEntrance 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both,
-                epicTextShine 4s ease-in-out infinite 2.5s,
-                legendaryPulse 3s ease-in-out infinite 3s;
-            
-            transform-style: preserve-3d;
-        }
-
-        /* Epic Glow Behind EXXO */
-        .hero-title::before {
-            content: 'EXXO';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: -1;
-            font-size: inherit;
-            font-weight: inherit;
-            letter-spacing: inherit;
-            color: transparent;
-            text-shadow: 
-                0 0 20px rgba(255, 215, 0, 0.8),
-                0 0 40px rgba(255, 215, 0, 0.6),
-                0 0 60px rgba(255, 215, 0, 0.4),
-                0 0 80px rgba(196, 30, 58, 0.3);
-            animation: epicGlowPulse 2s ease-in-out infinite;
+            animation: elegantZoom 1.2s ease-out 0.3s both;
+            text-shadow: 2px 2px 0px #a0a0a0, 4px 4px 0px #808080, 6px 6px 0px #606060, 8px 8px 15px rgba(0, 0, 0, 0.8);
         }
 
         .hero-subtitle {
@@ -264,12 +251,20 @@
             font-weight: 700;
             color: var(--exxo-red);
             margin-bottom: 1.5rem;
+            animation: luxurySlideUp 1s ease-out 0.6s both;
+            text-shadow: 0 0 10px rgba(196, 30, 58, 0.5), 0 0 20px rgba(196, 30, 58, 0.3), 0 0 30px rgba(196, 30, 58, 0.2);
         }
 
         .hero-tagline {
             font-size: 2rem;
             color: var(--exxo-gold);
             margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
         }
 
         .hero-description {
@@ -280,6 +275,7 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
+            animation: luxurySlideUp 1s ease-out 1.2s both;
         }
 
         .hero-button {
@@ -291,13 +287,31 @@
             font-size: 1.125rem;
             font-weight: 600;
             text-decoration: none;
-            cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: premiumPulse 2s infinite 2s;
+            cursor: pointer;
+        }
+
+        .hero-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hero-button:hover::before {
+            left: 100%;
         }
 
         .hero-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
         }
 
         /* Product Section */
@@ -330,25 +344,68 @@
             position: relative;
             display: inline-block;
             cursor: pointer;
+            transition: transform 0.4s ease-out;
+        }
+
+        .product-image-container:hover {
+            transform: translateY(-12px) scale(1.02);
         }
 
         .product-image {
             filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            transition: all 0.4s ease-out;
             position: relative;
             z-index: 2;
+        }
+
+        .product-image-container:hover .product-image {
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.2));
         }
 
         .can-image {
             width: 250px;
             height: 400px;
-            object-fit: contain;
+            animation: gentleFloat 8s ease-in-out infinite;
         }
 
         .bottle-image {
             width: 250px;
             height: 400px;
+            animation: gentleFloat 8s ease-in-out infinite 2s;
             filter: drop-shadow(0 10px 25px rgba(196, 30, 58, 0.3));
             object-fit: contain;
+        }
+
+        .product-image-container:hover .bottle-image {
+            filter: drop-shadow(0 20px 40px rgba(196, 30, 58, 0.4)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+        }
+
+        .product-glow {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            width: 70%;
+            height: 15%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 50%;
+            filter: blur(20px);
+        }
+
+        .can-glow {
+            background: rgba(196, 30, 58, 0.3);
+        }
+
+        .bottle-glow {
+            background: rgba(196, 30, 58, 0.3);
+            width: 80%;
+        }
+
+        .product-image-container:hover .product-glow {
+            opacity: 1;
         }
 
         .product-content h2 {
@@ -382,6 +439,12 @@
             gap: 1rem;
             color: #cccccc;
             margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            color: white;
+            transform: translateX(4px);
         }
 
         .feature-dot {
@@ -391,6 +454,7 @@
             border-radius: 50%;
             margin-top: 12px;
             flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         /* Nutrition Section */
@@ -410,13 +474,23 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 2rem;
-            color: var(--exxo-gold);
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
         }
 
         .nutrition-table {
             background: var(--exxo-dark-gray);
             border: 1px solid var(--exxo-gold);
             padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nutrition-table:hover {
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
         }
 
         .nutrition-header {
@@ -431,10 +505,16 @@
             align-items: center;
             padding: 0.75rem 0;
             border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .nutrition-row:last-child {
             border-bottom: none;
+        }
+
+        .nutrition-row:hover {
+            background: rgba(255, 215, 0, 0.05);
+            padding-left: 1rem;
         }
 
         .nutrition-label {
@@ -451,6 +531,11 @@
             border: 1px solid var(--exxo-gold);
             padding: 2rem;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .ingredients-card:hover {
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.2);
         }
 
         .ingredients-title {
@@ -480,7 +565,12 @@
         .about-title {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--exxo-gold);
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
             margin-bottom: 2rem;
         }
 
@@ -508,6 +598,11 @@
             border: 1px solid var(--exxo-gold);
             padding: 2rem;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.2);
         }
 
         .team-title {
@@ -558,7 +653,12 @@
         .contact-title {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--exxo-gold);
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
             margin-bottom: 3rem;
             text-align: center;
         }
@@ -578,14 +678,15 @@
             text-align: center;
             font-weight: 500;
             text-decoration: none;
-            cursor: pointer;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .contact-link:hover {
             color: var(--exxo-black);
             background: linear-gradient(135deg, var(--exxo-gold), #ffed4e);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
         }
 
         /* Footer */
@@ -827,90 +928,131 @@
             }
         }
 
-        /* EPIC EXXO ANIMATIONS */
-        @keyframes cinematicEntrance {
+        /* Animations - ALLE EFFEKTE */
+        @keyframes fadeIn {
             0% {
                 opacity: 0;
-                transform: 
-                    scale(0.3) 
-                    rotateX(90deg) 
-                    rotateY(-30deg) 
-                    translateZ(-200px);
-                filter: blur(20px);
-            }
-            50% {
-                opacity: 0.8;
-                transform: 
-                    scale(1.1) 
-                    rotateX(0deg) 
-                    rotateY(5deg) 
-                    translateZ(50px);
-                filter: blur(5px);
+                transform: translateY(30px) scale(0.95);
             }
             100% {
                 opacity: 1;
-                transform: 
-                    scale(1) 
-                    rotateX(0deg) 
-                    rotateY(0deg) 
-                    translateZ(0px);
-                filter: blur(0px);
+                transform: translateY(0) scale(1);
             }
         }
 
-        @keyframes epicTextShine {
+        @keyframes elegantZoom {
             0% {
-                background-position: -400% center;
+                opacity: 0;
+                transform: scale(0.8) rotateY(10deg);
             }
             100% {
-                background-position: 400% center;
-            }
-        }
-
-        @keyframes legendaryPulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.02);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes epicGlowPulse {
-            0% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-            50% {
                 opacity: 1;
+                transform: scale(1) rotateY(0deg);
+            }
+        }
+
+        @keyframes luxurySlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes premiumGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2), 0 0 60px rgba(255, 215, 0, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3), 0 0 90px rgba(255, 215, 0, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2), 0 0 60px rgba(255, 215, 0, 0.1);
+            }
+        }
+
+        @keyframes premiumPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+            }
+            70% {
                 transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
             }
             100% {
-                opacity: 0.6;
                 transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
             }
         }
 
-        @keyframes epicGlow {
+        @keyframes textShine {
             0% {
-                opacity: 0.8;
-                transform: scale(1) rotate(0deg);
-            }
-            33% {
-                opacity: 1;
-                transform: scale(1.02) rotate(1deg);
-            }
-            66% {
-                opacity: 0.9;
-                transform: scale(0.98) rotate(-1deg);
+                background-position: -200% center;
             }
             100% {
-                opacity: 0.8;
-                transform: scale(1) rotate(0deg);
+                background-position: 200% center;
             }
+        }
+
+        @keyframes gentleFloat {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 1s ease-out;
+        }
+
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 1s ease-out;
+        }
+
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease-out;
+        }
+
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
         }
     </style>
 </head>
@@ -955,7 +1097,7 @@
         <span class="mobile-nav-link" onclick="scrollToSection('contact'); closeMobileMenu()">📞 Kontakt</span>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - ALLE EFFEKTE KOMBINIERT -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
@@ -963,7 +1105,8 @@
             <div class="hero-subtitle">POMA FIZZ</div>
             <div class="hero-tagline">Premium Granatapfellimonade</div>
             <p class="hero-description">
-                Die revolutionäre neue Kategorie von Erfrischungsgetränken. Exotische Früchte als erfrischende Limonade, nicht nur als Saft. Pure Frische • Echter Geschmack • Unvergleichliches Erlebnis
+                Die revolutionäre neue Kategorie von Erfrischungsgetränken. Exotische Früchte als erfrischende Limonade -
+                nicht nur als Saft. Pure Frische • Echter Geschmack • Unvergleichliches Erlebnis
             </p>
             <span class="hero-button" onclick="scrollToSection('product')">
                 <span>Jetzt entdecken</span>
@@ -976,22 +1119,24 @@
         <div class="container">
             <div class="product-grid">
                 <div class="product-images">
-                    <div class="product-image-container">
+                    <div class="product-image-container zoom-in">
                         <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/exxo-can.png" 
                              alt="EXXO POMA FIZZ Dose" class="product-image can-image">
+                        <div class="product-glow can-glow"></div>
                     </div>
-                    <div class="product-image-container">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PET%200%2C5l-PnzYEL5v97IY5bUWspBFD9l7SSSylX.png" 
+                    <div class="product-image-container zoom-in">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp_Bild_2025-05-29_um_21.32.01_61afb415-removebg-preview-uHzNEp80oBRDY8zUYDm1Rt9JmHYnuD.png" 
                              alt="EXXO POMA FIZZ Flasche" class="product-image bottle-image">
+                        <div class="product-glow bottle-glow"></div>
                     </div>
                 </div>
-                <div class="product-content">
+                <div class="product-content slide-right">
                     <h2>POMA FIZZ</h2>
                     <div class="subtitle">Die Revolution der Erfrischung</div>
                     <p>
-                        EXXO POMA FIZZ ist mehr als nur ein Getränk. Es ist eine Vision.
+                        EXXO POMA FIZZ ist mehr als nur ein Getränk – es ist eine Vision.
                         EXXO ist die logische Antwort auf ein Bedürfnis, das viel zu lange ignoriert wurde.
-                        Exotische Früchte, die Menschen gerne essen, endlich als erfrischende Limonade verfügbar zu machen, nicht nur als Saft. Frisch, charakterstark und kompromisslos in der Qualität.
+                        Exotische Früchte, die Menschen gerne essen, endlich als erfrischende Limonade verfügbar zu machen – nicht nur als Saft. Frisch, charakterstark und kompromisslos in der Qualität.
                     </p>
                     <ul class="feature-list">
                         <li class="feature-item">
@@ -1000,11 +1145,11 @@
                         </li>
                         <li class="feature-item">
                             <div class="feature-dot"></div>
-                            <span>Perfekt ausbalancierte Kohlensäure für optimale Erfrischung</span>
+                            <span>Perfekt ausbalanzierte Kohlensäure für optimale Erfrischung</span>
                         </li>
                         <li class="feature-item">
                             <div class="feature-dot"></div>
-                            <span>Premium-Qualität ohne Kompromisse</span>
+                            <span>Premium Qualität ohne Kompromisse</span>
                         </li>
                         <li class="feature-item">
                             <div class="feature-dot"></div>
@@ -1012,7 +1157,7 @@
                         </li>
                         <li class="feature-item">
                             <div class="feature-dot"></div>
-                            <span>Sorgfältig ausgewählte Zutaten mit natürlichen Fruchtkonzentraten</span>
+                            <span>Sorgfältig ausgewählte, natürliche Zutaten</span>
                         </li>
                         <li class="feature-item">
                             <div class="feature-dot"></div>
@@ -1036,7 +1181,7 @@
     <section id="nutrition" class="nutrition-section">
         <div class="container">
             <div class="nutrition-grid">
-                <div>
+                <div class="fade-in">
                     <h3 class="nutrition-title">Nährwertangaben</h3>
                     <div class="nutrition-table">
                         <div class="nutrition-header">Durchschnittlicher Gehalt pro 100ml:</div>
@@ -1066,7 +1211,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ingredients-card">
+                <div class="ingredients-card fade-in">
                     <h3 class="ingredients-title">Zutaten</h3>
                     <p class="ingredients-text">
                         Wasser, Zucker, Zitronensaftkonzentrat, Kohlensäure, Granatapfelkonzentrat, färbendes Konzentrat aus
@@ -1081,14 +1226,14 @@
     <section id="about" class="about-section">
         <div class="container">
             <div class="about-grid">
-                <div>
+                <div class="slide-left">
                     <h2 class="about-title">Über EXXO</h2>
                     <p class="about-highlight">
-                        Wir haben erkannt, was im Limonadenregal bisher gefehlt hat, und liefern die Antwort mit EXXO.
+                        Wir haben die Lücke gesucht und gefunden: Was gibt es noch nicht in der Form von Limonaden?
                     </p>
                     <p class="about-text">
                         Wir haben geforscht und sind auf den Gedanken gekommen, dass exotische Früchte, die sehr viele Menschen
-                        gerne essen, auch als Limonade getrunken werden möchten und nicht nur als Saft. Diese Vision führte
+                        gerne essen, auch als Limonade getrunken werden möchten - und nicht nur als Saft. Diese Vision führte
                         zur Geburt von EXXO.
                     </p>
                     <p class="about-text">
@@ -1097,10 +1242,11 @@
                         die ganze Welt.
                     </p>
                     <p class="about-conclusion">
-                        EXXO repräsentiert eine völlig neue Ära von Premium-Erfrischungsgetränken: Die Zukunft des authentischen Geschmacks.
+                        EXXO repräsentiert eine völlig neue Ära von Premium-Erfrischungsgetränken - die Zukunft des
+                        authentischen Geschmacks.
                     </p>
                 </div>
-                <div class="team-card">
+                <div class="team-card slide-right">
                     <h3 class="team-title">Unser Team</h3>
                     <div class="team-member">
                         <p class="team-name">Theodoros Georgiadis</p>
@@ -1128,12 +1274,12 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="contact-title">Rechtliche Informationen</h2>
+            <h2 class="contact-title fade-in">Rechtliche Informationen</h2>
             <div class="contact-grid">
-                <span class="contact-link" onclick="openModal('datenschutz')">
+                <span class="contact-link fade-in" onclick="openModal('datenschutz')">
                     Datenschutzerklärung
                 </span>
-                <span class="contact-link" onclick="openModal('impressum')">
+                <span class="contact-link fade-in" onclick="openModal('impressum')">
                     Impressum
                 </span>
             </div>
@@ -1146,7 +1292,7 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>EXXO</h3>
-                    <p>Premium-Erfrischungsgetränke der nächsten Generation</p>
+                    <p>Premium Erfrischungsgetränke der nächsten Generation</p>
                     <p>Exotische Früchte als revolutionäre Limonaden</p>
                     <p>Innovation für den globalen Markt</p>
                     <p>Produziert von Tzini UG</p>
@@ -1162,11 +1308,11 @@
                 </div>
                 <div class="footer-section">
                     <h3>Produktlinie</h3>
-                    <p>EXXO POMA FIZZ – Granatapfel</p>
+                    <p>EXXO POMA FIZZ - Granatapfel</p>
                     <p>Weitere exotische Sorten in Planung</p>
-                    <p>Premium-Qualität garantiert</p>
+                    <p>Premium Qualität garantiert</p>
                     <p>Nachhaltige Produktion</p>
-                    <p>Lieferzeit: 2–5 Werktage nach Produktion</p>
+                    <p>Lieferzeit: 2-5 Werktage nach Produktion</p>
                 </div>
                 <div class="footer-section">
                     <h3>Unternehmen</h3>
@@ -1174,7 +1320,7 @@
                     <p>USt-IdNr.: DE364976576</p>
                     <p>IHK Arnsberg</p>
                     <p>Versichert bei: Nürnberger Versicherung</p>
-                    <p class="hours">Öffnungszeiten: Mo–Fr 9:00–16:00</p>
+                    <p class="hours">Öffnungszeiten: Mo-Fr 9:00-16:00</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1383,7 +1529,7 @@
             }
         }
 
-        // Modal functions - PERFEKT FUNKTIONIEREND
+        // Modal functions
         function openModal(type) {
             const modal = document.getElementById(type + 'Modal');
             if (modal) {
@@ -1420,6 +1566,35 @@
                 });
                 closeMobileMenu();
             }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in, .slide-left, .slide-right, .zoom-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays for feature items
+        document.querySelectorAll('.feature-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add staggered animation delays for nutrition rows
+        document.querySelectorAll('.nutrition-row').forEach((row, index) => {
+            row.style.transitionDelay = `${index * 0.1}s`;
         });
     </script>
 </body>
