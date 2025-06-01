@@ -214,6 +214,7 @@
             justify-content: center;
             position: relative;
             background: linear-gradient(135deg, var(--exxo-black) 0%, var(--exxo-charcoal) 100%);
+            padding-top: 80px;
             overflow: hidden;
         }
 
@@ -226,29 +227,6 @@
                 radial-gradient(ellipse at 80% 50%, rgba(196, 30, 58, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at center, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
             animation: epicGlow 6s ease-in-out infinite;
-        }
-
-        /* Cinematic Particles */
-        .hero-particles {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--exxo-gold);
-            border-radius: 50%;
-            opacity: 0;
-            animation: particleFloat 8s linear infinite;
-        }
-
-        .particle:nth-child(odd) {
-            background: var(--exxo-red);
-            animation-duration: 12s;
         }
 
         .hero-content {
@@ -318,33 +296,17 @@
             animation: epicGlowPulse 2s ease-in-out infinite;
         }
 
-        /* Spectacular Subtitle */
         .hero-subtitle {
             font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 700;
             color: var(--exxo-red);
             margin-bottom: 1.5rem;
-            animation: 
-                luxurySlideUp 1.5s ease-out 1.2s both,
-                redGlow 3s ease-in-out infinite 2s;
-            text-shadow: 
-                0 0 20px rgba(196, 30, 58, 0.8),
-                0 0 40px rgba(196, 30, 58, 0.5),
-                0 0 60px rgba(196, 30, 58, 0.3);
         }
 
         .hero-tagline {
             font-size: 2rem;
             color: var(--exxo-gold);
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
-            background-size: 200% 100%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: 
-                luxurySlideUp 1.5s ease-out 1.8s both,
-                textShine 3s ease-in-out infinite 2.5s;
         }
 
         .hero-description {
@@ -355,52 +317,24 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
-            animation: luxurySlideUp 1.5s ease-out 2.4s both;
         }
 
         .hero-button {
             display: inline-block;
-            background: linear-gradient(45deg, var(--exxo-red), var(--exxo-red-dark), var(--exxo-red));
-            background-size: 200% 200%;
+            background: linear-gradient(to right, var(--exxo-red), var(--exxo-red-dark));
             color: white;
             border: 2px solid var(--exxo-gold);
             padding: 1rem 2.5rem;
             font-size: 1.125rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            animation: 
-                luxurySlideUp 1.5s ease-out 3s both,
-                buttonPulse 2s infinite 4s;
             cursor: pointer;
-            box-shadow: 
-                0 10px 30px rgba(196, 30, 58, 0.3),
-                0 0 50px rgba(255, 215, 0, 0.2);
-        }
-
-        .hero-button::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .hero-button:hover::before {
-            left: 100%;
+            transition: all 0.3s ease;
         }
 
         .hero-button:hover {
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 
-                0 20px 50px rgba(196, 30, 58, 0.4),
-                0 0 80px rgba(255, 215, 0, 0.3);
-            background-position: 100% 100%;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
         }
 
         /* Product Section */
@@ -1312,7 +1246,7 @@
         <div class="hero-bg"></div>
         
         <!-- Cinematic Particles -->
-        <div class="hero-particles" id="heroParticles"></div>
+        
         
         <div class="hero-content">
             <h1 class="hero-title">EXXO</h1>
@@ -1339,7 +1273,7 @@
                         <div class="product-glow can-glow"></div>
                     </div>
                     <div class="product-image-container zoom-in">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp_Bild_2025-05-29_um_21.32.01_61afb415-removebg-preview-uHzNEp80oBRDY8zUYDm1Rt9JmHYnuD.png" 
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PET%200%2C5l-PnzYEL5v97IY5bUWspBFD9l7SSSylX.png" 
                              alt="EXXO POMA FIZZ Flasche" class="product-image bottle-image">
                         <div class="product-glow bottle-glow"></div>
                     </div>
@@ -1691,22 +1625,10 @@
         });
 
         // Create cinematic particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('heroParticles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 8 + 's';
-                particle.style.animationDuration = (8 + Math.random() * 4) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
+        
 
         // Initialize particles
-        createParticles();
+        
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
