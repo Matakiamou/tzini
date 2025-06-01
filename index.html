@@ -35,6 +35,34 @@
             --exxo-dark-gray: #2a2a2a;
         }
 
+        /* SCROLL ANIMATION CLASSES */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1 !important;
+            transform: translateX(0) translateY(0) !important;
+        }
+
+        .slide-left {
+            transform: translateX(-50px);
+        }
+
+        .slide-right {
+            transform: translateX(50px);
+        }
+
+        .slide-up {
+            transform: translateY(50px);
+        }
+
+        .slide-down {
+            transform: translateY(-50px);
+        }
+
         /* Navigation */
         .navbar {
             position: fixed;
@@ -72,6 +100,7 @@
             width: 80px;
             height: 70px;
             transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
         }
 
         .nav-logo:hover {
@@ -82,6 +111,7 @@
             width: 2px;
             height: 48px;
             background: linear-gradient(to bottom, var(--exxo-gold), var(--exxo-red));
+            animation: pulse 2s infinite;
         }
 
         .nav-text {
@@ -108,14 +138,33 @@
             text-decoration: none;
             font-weight: 500;
             border-bottom: 2px solid transparent;
-            padding-bottom: 4px;
+            padding: 0.5rem 1rem;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
         }
 
         .nav-link:hover {
             color: var(--exxo-gold);
             border-bottom-color: var(--exxo-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
         }
 
         /* Mobile Menu */
@@ -130,10 +179,11 @@
         .hamburger-line {
             width: 25px;
             height: 3px;
-            background: var(--exxo-gold);
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light));
             margin: 3px 0;
             transition: all 0.3s ease;
             border-radius: 2px;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
         }
 
         .mobile-menu-btn.active .hamburger-line:nth-child(1) {
@@ -142,6 +192,7 @@
 
         .mobile-menu-btn.active .hamburger-line:nth-child(2) {
             opacity: 0;
+            transform: scale(0);
         }
 
         .mobile-menu-btn.active .hamburger-line:nth-child(3) {
@@ -161,6 +212,7 @@
             z-index: 55;
             padding-top: 100px;
             backdrop-filter: blur(20px);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         }
 
         .mobile-menu.active {
@@ -196,12 +248,32 @@
             border-bottom: 1px solid rgba(255, 215, 0, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-nav-link::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--exxo-gold);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: top;
+        }
+
+        .mobile-nav-link:hover::before {
+            transform: scaleY(1);
         }
 
         .mobile-nav-link:hover {
             color: var(--exxo-gold);
             background: rgba(255, 215, 0, 0.1);
             padding-left: 2.5rem;
+            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
         }
 
         /* Hero Section */
@@ -312,10 +384,18 @@
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
         }
 
+        /* Section Dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--exxo-gold), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
         /* Product Section */
         .product-section {
             padding: 6rem 0;
             background: var(--exxo-charcoal);
+            position: relative;
         }
 
         .container {
@@ -346,7 +426,7 @@
         }
 
         .product-image-container:hover {
-            transform: translateY(-12px) scale(1.05);
+            transform: translateY(-12px) scale(1.05) rotateY(5deg);
         }
 
         .product-image {
@@ -371,6 +451,14 @@
             animation: gentleFloat 8s ease-in-out infinite 2s;
         }
 
+        .product-image-container:hover .can-image {
+            filter: drop-shadow(0 25px 50px rgba(196, 30, 58, 0.4));
+        }
+
+        .product-image-container:hover .bottle-image {
+            filter: drop-shadow(0 25px 50px rgba(255, 215, 0, 0.3));
+        }
+
         .product-glow {
             position: absolute;
             bottom: 0;
@@ -383,6 +471,7 @@
             filter: blur(20px);
             opacity: 0;
             transition: opacity 0.4s ease-out;
+            animation: pulseGlow 3s ease-in-out infinite;
         }
 
         .product-image-container:hover .product-glow {
@@ -394,6 +483,12 @@
             font-weight: 900;
             color: var(--exxo-red);
             margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--exxo-red), var(--exxo-red-dark), var(--exxo-red));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
         }
 
         .product-content .subtitle {
@@ -421,27 +516,41 @@
             color: #cccccc;
             margin-bottom: 0.75rem;
             transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.6s ease-out forwards;
         }
+
+        .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .feature-item:nth-child(4) { animation-delay: 0.4s; }
+        .feature-item:nth-child(5) { animation-delay: 0.5s; }
+        .feature-item:nth-child(6) { animation-delay: 0.6s; }
+        .feature-item:nth-child(7) { animation-delay: 0.7s; }
+        .feature-item:nth-child(8) { animation-delay: 0.8s; }
 
         .feature-item:hover {
             color: white;
-            transform: translateX(4px);
+            transform: translateX(8px);
         }
 
         .feature-dot {
             width: 8px;
             height: 8px;
-            background: var(--exxo-gold);
+            background: linear-gradient(45deg, var(--exxo-gold), var(--exxo-gold-light));
             border-radius: 50%;
             margin-top: 12px;
             flex-shrink: 0;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            animation: pulseGlow 3s ease-in-out infinite;
         }
 
         /* Nutrition Section */
         .nutrition-section {
             padding: 6rem 0;
             background: var(--exxo-charcoal);
+            position: relative;
         }
 
         .nutrition-grid {
@@ -468,10 +577,29 @@
             border: 1px solid var(--exxo-gold);
             padding: 2rem;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nutrition-table::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .nutrition-table:hover::before {
+            left: 100%;
         }
 
         .nutrition-table:hover {
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+            transform: translateY(-4px);
+            border-color: var(--exxo-gold-light);
         }
 
         .nutrition-header {
@@ -487,24 +615,51 @@
             padding: 0.75rem 0;
             border-bottom: 1px solid rgba(255, 215, 0, 0.1);
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .nutrition-row:last-child {
             border-bottom: none;
         }
 
+        .nutrition-row::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+            transition: width 0.3s ease;
+        }
+
+        .nutrition-row:hover::before {
+            width: 100%;
+        }
+
         .nutrition-row:hover {
-            background: rgba(255, 215, 0, 0.05);
             padding-left: 1rem;
+            transform: translateX(4px);
         }
 
         .nutrition-label {
             color: #cccccc;
+            transition: color 0.3s ease;
+        }
+
+        .nutrition-row:hover .nutrition-label {
+            color: var(--exxo-gold-light);
         }
 
         .nutrition-value {
             color: white;
             font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nutrition-row:hover .nutrition-value {
+            color: var(--exxo-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .ingredients-card {
@@ -513,10 +668,28 @@
             padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ingredients-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .ingredients-card:hover::before {
+            left: 100%;
         }
 
         .ingredients-card:hover {
             box-shadow: 0 20px 40px rgba(196, 30, 58, 0.2);
+            transform: translateY(-4px) scale(1.02);
         }
 
         .ingredients-title {
@@ -535,6 +708,7 @@
         .about-section {
             padding: 6rem 0;
             background: var(--exxo-charcoal);
+            position: relative;
         }
 
         .about-grid {
@@ -580,10 +754,28 @@
             padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .team-card:hover::before {
+            left: 100%;
         }
 
         .team-card:hover {
             box-shadow: 0 20px 40px rgba(196, 30, 58, 0.2);
+            transform: translateY(-4px) scale(1.03);
         }
 
         .team-title {
@@ -600,6 +792,12 @@
         .team-name {
             font-weight: 600;
             color: var(--exxo-gold);
+            transition: all 0.3s ease;
+        }
+
+        .team-name:hover {
+            color: var(--exxo-gold-light);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .team-role {
@@ -629,6 +827,7 @@
         .contact-section {
             padding: 6rem 0;
             background: var(--exxo-charcoal);
+            position: relative;
         }
 
         .contact-title {
@@ -660,13 +859,30 @@
             font-weight: 500;
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .contact-link:hover::before {
+            left: 100%;
         }
 
         .contact-link:hover {
             color: var(--exxo-black);
             background: linear-gradient(135deg, var(--exxo-gold), #ffed4e);
-            transform: translateY(-4px);
+            transform: translateY(-8px) scale(1.05);
             box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
         }
 
@@ -675,6 +891,18 @@
             padding: 4rem 0;
             background: var(--exxo-black);
             border-top: 1px solid var(--exxo-gold);
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--exxo-gold), transparent);
+            animation: shimmer 3s ease-in-out infinite;
         }
 
         .footer-grid {
@@ -689,12 +917,24 @@
             font-weight: 600;
             color: var(--exxo-gold);
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section h3:hover {
+            color: var(--exxo-gold-light);
+            transform: translateX(4px);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .footer-section p {
             color: #cccccc;
             font-size: 0.875rem;
             margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section p:hover {
+            color: white;
         }
 
         .footer-section .company-name {
@@ -723,12 +963,13 @@
             color: var(--exxo-gold);
             text-decoration: underline;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .cookie-settings-link:hover {
             color: var(--exxo-gold-light);
             text-decoration: none;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         /* COOKIE BANNER */
@@ -791,6 +1032,23 @@
             text-decoration: none;
             display: inline-block;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cookie-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cookie-btn:hover::before {
+            left: 100%;
         }
 
         .cookie-btn-settings {
@@ -802,6 +1060,7 @@
         .cookie-btn-settings:hover {
             background: var(--exxo-gold);
             color: var(--exxo-black);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
 
         .cookie-btn-necessary {
@@ -811,6 +1070,7 @@
 
         .cookie-btn-necessary:hover {
             background: #555555;
+            transform: translateY(-2px);
         }
 
         .cookie-btn-accept {
@@ -850,10 +1110,11 @@
             border-radius: 8px;
             position: relative;
             animation: modalSlideIn 0.4s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .modal-header {
-            background: var(--exxo-dark-gray);
+            background: linear-gradient(135deg, var(--exxo-dark-gray), var(--exxo-charcoal));
             padding: 2rem;
             border-bottom: 1px solid var(--exxo-gold);
             position: sticky;
@@ -868,6 +1129,12 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            background: linear-gradient(to right, var(--exxo-gold), var(--exxo-gold-light), var(--exxo-gold));
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s ease-in-out infinite;
         }
 
         .close {
@@ -878,11 +1145,15 @@
             font-size: 2rem;
             font-weight: bold;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
         }
 
         .close:hover {
             color: var(--exxo-gold);
+            background: rgba(255, 215, 0, 0.1);
+            transform: scale(1.1) rotate(90deg);
         }
 
         .modal-body {
@@ -895,6 +1166,12 @@
             background: var(--exxo-dark-gray);
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-section:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.1);
         }
 
         .modal-section h3 {
@@ -930,6 +1207,18 @@
             padding: 1rem;
             border-left: 4px solid var(--exxo-gold);
             margin: 1rem 0;
+            position: relative;
+        }
+
+        .company-info::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--exxo-gold), var(--exxo-gold-light));
+            animation: pulse 2s infinite;
         }
 
         .company-info p {
@@ -948,6 +1237,12 @@
             border: 1px solid rgba(255, 215, 0, 0.1);
             border-radius: 8px;
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-category:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.1);
         }
 
         .cookie-category-info {
@@ -981,15 +1276,17 @@
             border-radius: 12px;
             position: relative;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .toggle-switch.active {
-            background: var(--exxo-gold);
+            background: linear-gradient(45deg, var(--exxo-gold), var(--exxo-gold-light));
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .toggle-switch.disabled {
-            background: var(--exxo-gold);
+            background: linear-gradient(45deg, var(--exxo-gold), var(--exxo-gold-light));
             cursor: not-allowed;
             opacity: 0.7;
         }
@@ -1002,7 +1299,8 @@
             position: absolute;
             top: 2px;
             left: 2px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .toggle-switch.active .toggle-slider {
@@ -1026,6 +1324,23 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .save-preferences-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .save-preferences-btn:hover::before {
+            left: 100%;
         }
 
         .save-preferences-btn:hover {
@@ -1221,6 +1536,35 @@
             }
         }
 
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+                transform: scale(1.1);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
         @keyframes slideUp {
             0% {
                 transform: translateY(100%);
@@ -1240,6 +1584,51 @@
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* ACCESSIBILITY IMPROVEMENTS */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .animate-on-scroll {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* HIGH CONTRAST MODE SUPPORT */
+        @media (prefers-contrast: high) {
+            :root {
+                --exxo-gold: #ffff00;
+                --exxo-gold-light: #ffff99;
             }
         }
     </style>
@@ -1303,9 +1692,10 @@
 
     <!-- Product Section -->
     <section id="product" class="product-section">
+        <div class="section-divider"></div>
         <div class="container">
             <div class="product-grid">
-                <div class="product-images">
+                <div class="product-images animate-on-scroll slide-left">
                     <div class="product-image-container">
                         <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/exxo-can.png" 
                              alt="EXXO POMA FIZZ Dose" class="product-image can-image">
@@ -1317,7 +1707,7 @@
                         <div class="product-glow"></div>
                     </div>
                 </div>
-                <div class="product-content">
+                <div class="product-content animate-on-scroll slide-right">
                     <h2>POMA FIZZ</h2>
                     <div class="subtitle">Die Revolution der Erfrischung</div>
                     <p>
@@ -1366,9 +1756,10 @@
 
     <!-- Nutrition Section -->
     <section id="nutrition" class="nutrition-section">
+        <div class="section-divider"></div>
         <div class="container">
             <div class="nutrition-grid">
-                <div>
+                <div class="animate-on-scroll slide-up">
                     <h3 class="nutrition-title">Nährwertangaben</h3>
                     <div class="nutrition-table">
                         <div class="nutrition-header">Durchschnittlicher Gehalt pro 100ml:</div>
@@ -1398,7 +1789,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ingredients-card">
+                <div class="ingredients-card animate-on-scroll slide-up">
                     <h3 class="ingredients-title">Zutaten</h3>
                     <p class="ingredients-text">
                         Wasser, Zucker, Zitronensaftkonzentrat, Kohlensäure, Granatapfelkonzentrat, färbendes Konzentrat aus
@@ -1411,9 +1802,10 @@
 
     <!-- About Section -->
     <section id="about" class="about-section">
+        <div class="section-divider"></div>
         <div class="container">
             <div class="about-grid">
-                <div>
+                <div class="animate-on-scroll slide-left">
                     <h2 class="about-title">Über EXXO</h2>
                     <p class="about-highlight">
                         Wir haben erkannt, was im Limonadenregal bisher gefehlt hat, und liefern die Antwort mit EXXO.
@@ -1432,7 +1824,7 @@
                         EXXO repräsentiert eine völlig neue Ära von Premium-Erfrischungsgetränken: Die Zukunft des authentischen Geschmacks.
                     </p>
                 </div>
-                <div class="team-card">
+                <div class="team-card animate-on-scroll slide-right">
                     <h3 class="team-title">Unser Team</h3>
                     <div class="team-member">
                         <p class="team-name">Theodoros Georgiadis</p>
@@ -1459,16 +1851,17 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
+        <div class="section-divider"></div>
         <div class="container">
-            <h2 class="contact-title">Rechtliche Informationen</h2>
+            <h2 class="contact-title animate-on-scroll slide-down">Rechtliche Informationen</h2>
             <div class="contact-grid">
-                <span class="contact-link" onclick="openModal('datenschutz')">
+                <span class="contact-link animate-on-scroll slide-up" onclick="openModal('datenschutz')" style="animation-delay: 0.1s;">
                     Datenschutzerklärung
                 </span>
-                <span class="contact-link" onclick="openModal('impressum')">
+                <span class="contact-link animate-on-scroll slide-up" onclick="openModal('impressum')" style="animation-delay: 0.2s;">
                     Impressum
                 </span>
-                <span class="contact-link" onclick="openModal('cookie-policy')">
+                <span class="contact-link animate-on-scroll slide-up" onclick="openModal('cookie-policy')" style="animation-delay: 0.3s;">
                     Cookie-Richtlinie
                 </span>
             </div>
@@ -1479,14 +1872,14 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
+                <div class="footer-section animate-on-scroll slide-up" style="animation-delay: 0.1s;">
                     <h3>EXXO</h3>
                     <p>Premium-Erfrischungsgetränke der nächsten Generation</p>
                     <p>Exotische Früchte als revolutionäre Limonaden</p>
                     <p>Innovation für den globalen Markt</p>
                     <p>Produziert von Tzini UG</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section animate-on-scroll slide-up" style="animation-delay: 0.2s;">
                     <h3>Hersteller</h3>
                     <p class="company-name">Tzini UG (haftungsbeschränkt)</p>
                     <p>Geschäftsführer: Theodoros Georgiadis</p>
@@ -1495,7 +1888,7 @@
                     <p>Tel: +49 15773078966</p>
                     <p>E-Mail: info@tzini.de</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section animate-on-scroll slide-up" style="animation-delay: 0.3s;">
                     <h3>Produktlinie</h3>
                     <p>EXXO POMA FIZZ – Granatapfel</p>
                     <p>Weitere exotische Sorten in Planung</p>
@@ -1503,7 +1896,7 @@
                     <p>Nachhaltige Produktion</p>
                     <p>Lieferzeit: 2–5 Werktage nach Produktion</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section animate-on-scroll slide-up" style="animation-delay: 0.4s;">
                     <h3>Unternehmen</h3>
                     <p>HRB 11142, Amtsgericht Lemgo</p>
                     <p>USt-IdNr.: DE364976576</p>
@@ -1512,7 +1905,7 @@
                     <p class="hours">Öffnungszeiten: Mo–Fr 9:00–16:00</p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom animate-on-scroll slide-up" style="animation-delay: 0.5s;">
                 <p>&copy; <span id="currentYear"></span> EXXO. Alle Rechte vorbehalten.</p>
                 <p>Hersteller: Tzini UG (haftungsbeschränkt) | Geschäftsführer: Theodoros Georgiadis</p>
                 <p>Bielefelder Str. 11, 33813 Oerlinghausen | Tel: +49 15773078966 | E-Mail: info@tzini.de</p>
@@ -1786,6 +2179,26 @@
             el.textContent = new Date().toLocaleDateString('de-DE');
         });
 
+        // SCROLL ANIMATIONS - INTERSECTION OBSERVER
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animate-on-scroll class
+            const elementsToObserve = document.querySelectorAll('.animate-on-scroll');
+            elementsToObserve.forEach((element) => observer.observe(element));
+        }
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -1977,8 +2390,12 @@
             }
         });
 
-        // Initialize cookie banner
+        // Initialize everything when page loads
         window.addEventListener('load', function() {
+            // Initialize scroll animations
+            initScrollAnimations();
+            
+            // Initialize cookie banner
             const cookieConsent = localStorage.getItem('exxo-cookie-consent');
             if (!cookieConsent) {
                 setTimeout(showCookieBanner, 2000); // Show after 2 seconds
