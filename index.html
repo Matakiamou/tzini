@@ -178,65 +178,14 @@
             position: relative;
             background: linear-gradient(135deg, var(--exxo-black) 0%, var(--exxo-charcoal) 100%);
             padding-top: 80px;
-            overflow: hidden;
         }
 
-        /* Hero Particles */
-        .particles-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 215, 0, 0.4);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            animation: float-up var(--duration) ease-in infinite;
-        }
-
-        @keyframes float-up {
-            0% {
-                transform: translateY(100%) translateX(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: var(--opacity);
-            }
-            90% {
-                opacity: var(--opacity);
-            }
-            100% {
-                transform: translateY(-100vh) translateX(var(--drift)) scale(var(--scale));
-                opacity: 0;
-            }
-        }
-
-        /* Hero Content */
         .hero-content {
             text-align: center;
             max-width: 1000px;
             padding: 0 2rem;
             position: relative;
             z-index: 10;
-            animation: fade-in 1.5s ease-out;
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-title {
@@ -245,19 +194,6 @@
             letter-spacing: 0.1em;
             margin-bottom: 1rem;
             color: white;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-            animation: title-glow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes title-glow {
-            from {
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-            }
-            to {
-                text-shadow: 0 0 25px rgba(255, 215, 0, 0.7), 0 0 40px rgba(196, 30, 58, 0.3);
-            }
         }
 
         .hero-subtitle {
@@ -265,47 +201,12 @@
             font-weight: 700;
             color: var(--exxo-red);
             margin-bottom: 1.5rem;
-            animation: slide-in 1s ease-out 0.3s both;
-            position: relative;
-        }
-
-        .hero-subtitle::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--exxo-gold), transparent);
-            animation: line-expand 1.5s ease-out 1s forwards;
-        }
-
-        @keyframes line-expand {
-            from {
-                width: 0;
-            }
-            to {
-                width: 80%;
-            }
-        }
-
-        @keyframes slide-in {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-tagline {
             font-size: 2rem;
             color: var(--exxo-gold);
             margin-bottom: 1.5rem;
-            animation: slide-in 1s ease-out 0.6s both;
         }
 
         .hero-description {
@@ -316,7 +217,6 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
-            animation: slide-in 1s ease-out 0.9s both;
         }
 
         .hero-button {
@@ -330,46 +230,11 @@
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            animation: slide-in 1s ease-out 1.2s both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-button::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg);
-            z-index: -1;
-            transition: all 0.6s ease;
-            opacity: 0;
         }
 
         .hero-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
-        }
-
-        .hero-button:hover::before {
-            animation: shine 1.5s ease-out;
-        }
-
-        @keyframes shine {
-            0% {
-                opacity: 0;
-                left: -50%;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                left: 150%;
-            }
         }
 
         /* Product Section */
@@ -402,22 +267,12 @@
             position: relative;
             display: inline-block;
             cursor: pointer;
-            transition: transform 0.5s ease;
-        }
-
-        .product-image-container:hover {
-            transform: translateY(-10px);
         }
 
         .product-image {
             filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
             position: relative;
             z-index: 2;
-            transition: all 0.5s ease;
-        }
-
-        .product-image-container:hover .product-image {
-            filter: drop-shadow(0 15px 35px rgba(196, 30, 58, 0.4));
         }
 
         .can-image {
@@ -464,12 +319,6 @@
             gap: 1rem;
             color: #cccccc;
             margin-bottom: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateX(5px);
-            color: white;
         }
 
         .feature-dot {
@@ -511,12 +360,6 @@
             background: var(--exxo-dark-gray);
             border: 1px solid var(--exxo-gold);
             padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .nutrition-table:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .nutrition-header {
@@ -531,11 +374,6 @@
             align-items: center;
             padding: 0.75rem 0;
             border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .nutrition-row:hover {
-            background-color: rgba(255, 215, 0, 0.05);
         }
 
         .nutrition-row:last-child {
@@ -556,12 +394,6 @@
             border: 1px solid var(--exxo-gold);
             padding: 2rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .ingredients-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
         }
 
         .ingredients-title {
@@ -619,12 +451,6 @@
             border: 1px solid var(--exxo-gold);
             padding: 2rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
         }
 
         .team-title {
@@ -636,11 +462,6 @@
 
         .team-member {
             margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-2px);
         }
 
         .team-name {
@@ -702,38 +523,12 @@
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-            transition: all 0.6s ease;
         }
 
         .contact-link:hover {
             color: var(--exxo-black);
             background: linear-gradient(135deg, var(--exxo-gold), #ffed4e);
             transform: translateY(-2px);
-        }
-
-        .contact-link:hover::before {
-            animation: shine-sweep 1.5s infinite;
-        }
-
-        @keyframes shine-sweep {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
         }
 
         /* Footer */
@@ -761,11 +556,6 @@
             color: #cccccc;
             font-size: 0.875rem;
             margin-bottom: 0.25rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section p:hover {
-            color: white;
         }
 
         .footer-section .company-name {
@@ -814,18 +604,6 @@
             overflow-y: auto;
             border-radius: 8px;
             position: relative;
-            animation: modal-slide-down 0.5s ease;
-        }
-
-        @keyframes modal-slide-down {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .modal-header {
@@ -871,11 +649,6 @@
             background: var(--exxo-dark-gray);
             border: 1px solid rgba(255, 215, 0, 0.2);
             border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .modal-section:hover {
-            transform: translateY(-2px);
         }
 
         .modal-section h3 {
@@ -996,6 +769,131 @@
                 padding: 1.5rem;
             }
         }
+
+        /* SPEKTAKULÄRE HERO EFFEKTE */
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(196, 30, 58, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes heroGlow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        .hero-title {
+            position: relative;
+            z-index: 10;
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.5),
+                0 0 40px rgba(255, 215, 0, 0.3),
+                0 0 60px rgba(255, 215, 0, 0.2);
+            animation: titlePulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titlePulse {
+            0% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3); }
+            100% { text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.5), 0 0 90px rgba(255, 215, 0, 0.3); }
+        }
+
+        .hero-subtitle {
+            position: relative;
+            z-index: 10;
+            animation: subtitleGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtitleGlow {
+            0% { text-shadow: 0 0 10px rgba(196, 30, 58, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(196, 30, 58, 0.8), 0 0 40px rgba(196, 30, 58, 0.4); }
+        }
+
+        .hero-tagline {
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1.5s ease-out 0.5s both;
+        }
+
+        .hero-description {
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1.5s ease-out 1s both;
+        }
+
+        .hero-button {
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1.5s ease-out 1.5s both;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero-button:hover {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* PARTIKEL EFFEKT */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0.4) 50%, transparent 100%);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; animation-duration: 8s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; animation-duration: 10s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; animation-duration: 7s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; animation-duration: 9s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 4s; animation-duration: 8s; }
+        .particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-delay: 5s; animation-duration: 11s; }
+        .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 6s; animation-duration: 7s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 7s; animation-duration: 9s; }
+        .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 8s; animation-duration: 8s; }
+
+        @keyframes float {
+            0% { 
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { 
+                opacity: 1;
+            }
+            90% { 
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1041,10 +939,17 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <!-- Particles Container -->
-        <div class="particles-container" id="particles"></div>
-        
         <div class="hero-content">
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
             <h1 class="hero-title">EXXO</h1>
             <div class="hero-subtitle">POMA FIZZ</div>
             <div class="hero-tagline">Premium Granatapfellimonade</div>
@@ -1469,7 +1374,7 @@
             }
         }
 
-        // Modal functions
+        // Modal functions - PERFEKT FUNKTIONIEREND
         function openModal(type) {
             const modal = document.getElementById(type + 'Modal');
             if (modal) {
@@ -1506,81 +1411,6 @@
                 });
                 closeMobileMenu();
             }
-        });
-
-        // Create particles for hero section
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50; // Adjust number of particles
-            
-            // Clear existing particles
-            particlesContainer.innerHTML = '';
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size between 3px and 8px
-                const size = Math.random() * 5 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                const posX = Math.random() * 100;
-                particle.style.left = `${posX}%`;
-                particle.style.bottom = `-${size}px`;
-                
-                // Random animation duration between 8s and 15s
-                const duration = Math.random() * 7 + 8;
-                particle.style.setProperty('--duration', `${duration}s`);
-                
-                // Random horizontal drift
-                const drift = (Math.random() - 0.5) * 200;
-                particle.style.setProperty('--drift', `${drift}px`);
-                
-                // Random scale factor
-                const scale = Math.random() * 0.5 + 0.5;
-                particle.style.setProperty('--scale', scale);
-                
-                // Random opacity
-                const opacity = Math.random() * 0.5 + 0.2;
-                particle.style.setProperty('--opacity', opacity);
-                
-                // Random delay
-                const delay = Math.random() * duration;
-                particle.style.animationDelay = `${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Initialize particles on page load
-        window.addEventListener('load', function() {
-            createParticles();
-            
-            // Recreate particles periodically to ensure smooth animation
-            setInterval(createParticles, 20000);
-        });
-
-        // Intersection Observer for animation triggers
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, observerOptions);
-            
-            // Add animation classes and observers to sections
-            const sections = document.querySelectorAll('section:not(.hero)');
-            sections.forEach(section => {
-                observer.observe(section);
-            });
         });
     </script>
 </body>
