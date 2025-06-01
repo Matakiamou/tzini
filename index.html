@@ -72,7 +72,6 @@
             width: 80px;
             height: 70px;
             transition: transform 0.3s ease;
-            animation: elegantZoom 1.2s ease-out 0.3s both;
         }
 
         .nav-logo:hover {
@@ -83,7 +82,6 @@
             width: 2px;
             height: 48px;
             background: linear-gradient(to bottom, var(--exxo-gold), var(--exxo-red));
-            animation: luxurySlideUp 1s ease-out 0.6s both;
         }
 
         .nav-text {
@@ -206,7 +204,7 @@
             padding-left: 2.5rem;
         }
 
-        /* Hero Section - ALLE EFFEKTE KOMBINIERT */
+        /* Hero Section - MIT ALLEN EFFEKTEN */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -348,60 +346,39 @@
         }
 
         .product-image-container:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-12px) scale(1.05);
         }
 
         .product-image {
             filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
             transition: all 0.4s ease-out;
-            position: relative;
-            z-index: 2;
-        }
-
-        .product-image-container:hover .product-image {
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.2));
+            animation: gentleFloat 8s ease-in-out infinite;
         }
 
         .can-image {
             width: 250px;
             height: 400px;
-            animation: gentleFloat 8s ease-in-out infinite;
         }
 
         .bottle-image {
             width: 250px;
             height: 400px;
-            animation: gentleFloat 8s ease-in-out infinite 2s;
-            filter: drop-shadow(0 10px 25px rgba(196, 30, 58, 0.3));
             object-fit: contain;
-        }
-
-        .product-image-container:hover .bottle-image {
-            filter: drop-shadow(0 20px 40px rgba(196, 30, 58, 0.4)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+            animation: gentleFloat 8s ease-in-out infinite 2s;
         }
 
         .product-glow {
             position: absolute;
-            top: 85%;
+            bottom: 0;
             left: 50%;
-            width: 70%;
-            height: 15%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.4s ease-out;
-            pointer-events: none;
-            z-index: 1;
+            width: 75%;
+            height: 32px;
+            transform: translateX(-50%);
+            background: rgba(196, 30, 58, 0.3);
             border-radius: 50%;
             filter: blur(20px);
-        }
-
-        .can-glow {
-            background: rgba(196, 30, 58, 0.3);
-        }
-
-        .bottle-glow {
-            background: rgba(196, 30, 58, 0.3);
-            width: 80%;
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
         }
 
         .product-image-container:hover .product-glow {
@@ -827,16 +804,6 @@
             margin-bottom: 1rem;
         }
 
-        .modal-section ul {
-            color: #cccccc;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal-section li {
-            margin-bottom: 0.5rem;
-        }
-
         .company-info {
             background: var(--exxo-black);
             padding: 1rem;
@@ -928,7 +895,7 @@
             }
         }
 
-        /* Animations - ALLE EFFEKTE */
+        /* Animations - ALLE HERO EFFEKTE */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -1009,51 +976,6 @@
                 transform: translateY(0px);
             }
         }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 1s ease-out;
-        }
-
-        .slide-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 1s ease-out;
-        }
-
-        .slide-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .zoom-in {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 1s ease-out;
-        }
-
-        .zoom-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
     </style>
 </head>
 <body>
@@ -1097,7 +1019,7 @@
         <span class="mobile-nav-link" onclick="scrollToSection('contact'); closeMobileMenu()">📞 Kontakt</span>
     </div>
 
-    <!-- Hero Section - ALLE EFFEKTE KOMBINIERT -->
+    <!-- Hero Section - MIT ALLEN EFFEKTEN VOM ZWEITEN CODE -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
@@ -1114,29 +1036,30 @@
         </div>
     </section>
 
-    <!-- Product Section -->
+    <!-- Product Section - INHALT VOM ERSTEN CODE -->
     <section id="product" class="product-section">
         <div class="container">
             <div class="product-grid">
                 <div class="product-images">
-                    <div class="product-image-container zoom-in">
+                    <div class="product-image-container">
                         <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/images/exxo-can.png" 
                              alt="EXXO POMA FIZZ Dose" class="product-image can-image">
-                        <div class="product-glow can-glow"></div>
+                        <div class="product-glow"></div>
                     </div>
-                    <div class="product-image-container zoom-in">
+                    <div class="product-image-container">
                         <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp_Bild_2025-05-29_um_21.32.01_61afb415-removebg-preview-uHzNEp80oBRDY8zUYDm1Rt9JmHYnuD.png" 
                              alt="EXXO POMA FIZZ Flasche" class="product-image bottle-image">
-                        <div class="product-glow bottle-glow"></div>
+                        <div class="product-glow"></div>
                     </div>
                 </div>
-                <div class="product-content slide-right">
+                <div class="product-content">
                     <h2>POMA FIZZ</h2>
                     <div class="subtitle">Die Revolution der Erfrischung</div>
                     <p>
-                        EXXO POMA FIZZ ist mehr als nur ein Getränk – es ist eine Vision.
-                        EXXO ist die logische Antwort auf ein Bedürfnis, das viel zu lange ignoriert wurde.
-                        Exotische Früchte, die Menschen gerne essen, endlich als erfrischende Limonade verfügbar zu machen – nicht nur als Saft. Frisch, charakterstark und kompromisslos in der Qualität.
+                        EXXO POMA FIZZ ist mehr als nur ein Getränk – es ist eine Vision. EXXO ist die logische Antwort auf ein
+                        Bedürfnis, das viel zu lange ignoriert wurde. Exotische Früchte, die Menschen gerne essen, endlich als
+                        erfrischende Limonade verfügbar zu machen – nicht nur als Saft. Frisch, charakterstark und kompromisslos
+                        in der Qualität.
                     </p>
                     <ul class="feature-list">
                         <li class="feature-item">
@@ -1177,11 +1100,11 @@
         </div>
     </section>
 
-    <!-- Nutrition Section -->
+    <!-- Nutrition Section - INHALT VOM ERSTEN CODE -->
     <section id="nutrition" class="nutrition-section">
         <div class="container">
             <div class="nutrition-grid">
-                <div class="fade-in">
+                <div>
                     <h3 class="nutrition-title">Nährwertangaben</h3>
                     <div class="nutrition-table">
                         <div class="nutrition-header">Durchschnittlicher Gehalt pro 100ml:</div>
@@ -1211,7 +1134,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ingredients-card fade-in">
+                <div class="ingredients-card">
                     <h3 class="ingredients-title">Zutaten</h3>
                     <p class="ingredients-text">
                         Wasser, Zucker, Zitronensaftkonzentrat, Kohlensäure, Granatapfelkonzentrat, färbendes Konzentrat aus
@@ -1222,11 +1145,11 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section - INHALT VOM ERSTEN CODE -->
     <section id="about" class="about-section">
         <div class="container">
             <div class="about-grid">
-                <div class="slide-left">
+                <div>
                     <h2 class="about-title">Über EXXO</h2>
                     <p class="about-highlight">
                         Wir haben die Lücke gesucht und gefunden: Was gibt es noch nicht in der Form von Limonaden?
@@ -1246,7 +1169,7 @@
                         authentischen Geschmacks.
                     </p>
                 </div>
-                <div class="team-card slide-right">
+                <div class="team-card">
                     <h3 class="team-title">Unser Team</h3>
                     <div class="team-member">
                         <p class="team-name">Theodoros Georgiadis</p>
@@ -1271,22 +1194,22 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - INHALT VOM ERSTEN CODE -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="contact-title fade-in">Rechtliche Informationen</h2>
+            <h2 class="contact-title">Rechtliche Informationen</h2>
             <div class="contact-grid">
-                <span class="contact-link fade-in" onclick="openModal('datenschutz')">
+                <span class="contact-link" onclick="openModal('datenschutz')">
                     Datenschutzerklärung
                 </span>
-                <span class="contact-link fade-in" onclick="openModal('impressum')">
+                <span class="contact-link" onclick="openModal('impressum')">
                     Impressum
                 </span>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - INHALT VOM ERSTEN CODE -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1331,7 +1254,7 @@
         </div>
     </footer>
 
-    <!-- Datenschutz Modal -->
+    <!-- Datenschutz Modal - INHALT VOM ERSTEN CODE -->
     <div id="datenschutzModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1341,35 +1264,19 @@
             <div class="modal-body">
                 <div class="modal-section">
                     <h3>1. Datenschutz auf einen Blick</h3>
-                    
                     <h4>Allgemeine Hinweise</h4>
-                    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-
+                    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen
+                        Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen
+                        Sie persönlich identifiziert werden können.</p>
                     <h4>Datenerfassung auf dieser Website</h4>
                     <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
-                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
-
-                    <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
-                    Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in eine Kontaktanfrage eingeben.</p>
-
-                    <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
-
-                    <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
-                    Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
-
-                    <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
-                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.</p>
+                        Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten
+                        können Sie dem Impressum dieser Website entnehmen.</p>
                 </div>
-
                 <div class="modal-section">
                     <h3>2. Allgemeine Hinweise und Pflichtinformationen</h3>
-
-                    <h4>Datenschutz</h4>
-                    <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
-
                     <h4>Hinweis zur verantwortlichen Stelle</h4>
                     <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-
                     <div class="company-info">
                         <p>Tzini UG (haftungsbeschränkt)</p>
                         <p>Theodoros Georgiadis</p>
@@ -1378,30 +1285,7 @@
                         <p>Telefon: +49 15773078966</p>
                         <p>E-Mail: info@tzini.de</p>
                     </div>
-
-                    <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
                 </div>
-
-                <div class="modal-section">
-                    <h3>3. Datenerfassung auf dieser Website</h3>
-
-                    <h4>Server-Log-Dateien</h4>
-                    <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
-
-                    <ul>
-                        <li>Browsertyp und Browserversion</li>
-                        <li>verwendetes Betriebssystem</li>
-                        <li>Referrer URL</li>
-                        <li>Hostname des zugreifenden Rechners</li>
-                        <li>Uhrzeit der Serveranfrage</li>
-                        <li>IP-Adresse</li>
-                    </ul>
-
-                    <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
-
-                    <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
-                </div>
-
                 <div style="text-align: center; padding: 2rem 0; border-top: 1px solid rgba(255, 215, 0, 0.2); color: #999999;">
                     <p>Stand: <span class="current-date"></span></p>
                 </div>
@@ -1409,7 +1293,7 @@
         </div>
     </div>
 
-    <!-- Impressum Modal -->
+    <!-- Impressum Modal - INHALT VOM ERSTEN CODE -->
     <div id="impressumModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1425,43 +1309,23 @@
                         <p>33813 Oerlinghausen</p>
                         <p>Deutschland</p>
                     </div>
-
                     <h4>Vertreten durch</h4>
                     <p>Theodoros Georgiadis, Geschäftsführer</p>
-
                     <h4>Kontakt</h4>
                     <div class="company-info">
                         <p>Telefon: +49 15773078966</p>
                         <p>E-Mail: info@tzini.de</p>
                     </div>
-
                     <h4>Registereintrag</h4>
                     <div class="company-info">
                         <p>Eintragung im Handelsregister</p>
                         <p>Registergericht: Amtsgericht Lemgo</p>
                         <p>Registernummer: HRB 11142</p>
                     </div>
-
                     <h4>Umsatzsteuer-ID</h4>
                     <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
-                    <strong style="color: white;">DE364976576</strong></p>
+                        <strong style="color: white;">DE364976576</strong></p>
                 </div>
-
-                <div class="modal-section">
-                    <h3>Haftungsausschluss</h3>
-
-                    <h4>Haftung für Inhalte</h4>
-                    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
-
-                    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
-
-                    <h4>Haftung für Links</h4>
-                    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
-
-                    <h4>Urheberrecht</h4>
-                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
-                </div>
-
                 <div style="text-align: center; padding: 2rem 0; border-top: 1px solid rgba(255, 215, 0, 0.2); color: #999999;">
                     <p>Stand: <span class="current-date"></span></p>
                 </div>
@@ -1566,35 +1430,6 @@
                 });
                 closeMobileMenu();
             }
-        });
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with animation classes
-        document.querySelectorAll('.fade-in, .slide-left, .slide-right, .zoom-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add staggered animation delays for feature items
-        document.querySelectorAll('.feature-item').forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.1}s`;
-        });
-
-        // Add staggered animation delays for nutrition rows
-        document.querySelectorAll('.nutrition-row').forEach((row, index) => {
-            row.style.transitionDelay = `${index * 0.1}s`;
         });
     </script>
 </body>
