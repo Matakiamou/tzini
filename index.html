@@ -404,61 +404,61 @@
             padding: 0 2rem;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1,2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+       .product-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Komma zu Punkt geändert */
+  gap: 4rem;
+  align-items: center;
+}
 
-        .product-images {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-        }
+.product-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
 
-        .product-image-container {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            transition: transform 0.4s ease-out;
-        }
+.product-image-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.4s ease-out;
+}
 
-        .product-image-container:hover {
-            transform: translateY(-12px) scale(1.05) rotateY(5deg);
-        }
+.product-image-container:hover {
+  transform: translateY(-12px) scale(1.05) rotateY(5deg);
+}
 
-        .product-image {
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
-            position: relative;
-            z-index: 2;
-            transition: all 0.4s ease-out;
-            animation: gentleFloat 8s ease-in-out infinite;
-        }
+.product-image {
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease-out;
+  animation: gentleFloat 8s ease-in-out infinite;
+}
 
-        .can-image {
-            width: 250px;
-            height: 400px;
-            object-fit: contain;
-        }
+.can-image {
+  width: 250px;
+  height: 400px;
+  object-fit: contain;
+}
 
-        .bottle-image {
-            width: 500px;
-            height: 700px;
-            object-position: center center;
-            filter: drop-shadow(0 10px 25px rgba(196, 30, 58, 0.3));
-            object-fit: contain;
-            animation: gentleFloat 8s ease-in-out infinite 2s;
-        }
+.bottle-image {
+  width: 500px; /* Flasche vergrößert */
+  height: 700px; /* Flasche vergrößert */
+  object-position: center center; /* Flasche zentriert */
+  filter: drop-shadow(0 10px 25px rgba(196, 30, 58, 0.3));
+  object-fit: contain;
+  animation: gentleFloat 8s ease-in-out infinite 2s;
+}
 
-        .product-image-container:hover .can-image {
-            filter: drop-shadow(0 25px 50px rgba(196, 30, 58, 0.4));
-        }
+.product-image-container:hover .can-image {
+  filter: drop-shadow(0 25px 50px rgba(196, 30, 58, 0.4));
+}
 
-        .product-image-container:hover .bottle-image {
-            filter: drop-shadow(0 25px 50px rgba(255, 215, 0, 0.3));
-        }
+.product-image-container:hover .bottle-image {
+  filter: drop-shadow(0 25px 50px rgba(255, 215, 0, 0.3));
+}
 
         .product-glow {
             position: absolute;
