@@ -475,7 +475,27 @@
             transition: opacity 0.4s ease-out;
             animation: pulseGlow 3s ease-in-out infinite;
         }
+        .coming-soon-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
+                         0 0 40px rgba(255, 215, 0, 0.4);
+            white-space: nowrap;
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0.9;
+        }
 
+        @media (max-width: 768px) {
+            .coming-soon-text {
+                font-size: 1.5rem;
+            }
+        }
         .product-image-container:hover .product-glow {
             opacity: 1;
         }
@@ -1722,6 +1742,7 @@
                         <img src="https://raw.githubusercontent.com/Matakiamou/tzini/main/exxo-bottle.png.png" 
                              alt="EXXO POMA SPRITZ Dose" class="product-image can-image">
                         <div class="product-glow"></div>
+                        <div class="coming-soon-text">Bald in Ihrer Nähe erhältlich</div>
                     </div>
                 </div>
                 <div class="product-content animate-on-scroll slide-right">
