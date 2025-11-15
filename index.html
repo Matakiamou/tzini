@@ -496,6 +496,111 @@
                 font-size: 1.5rem;
             }
         }
+                /* B2B Contact Section */
+        .b2b-section {
+            padding: 80px 20px;
+            background: rgba(20, 20, 30, 0.6);
+            position: relative;
+        }
+
+        .b2b-description {
+            text-align: center;
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .b2b-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(30, 30, 40, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .b2b-submit-btn {
+            width: 100%;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .b2b-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .b2b-form {
+                padding: 25px;
+            }
+            
+            .b2b-section {
+                padding: 60px 15px;
+            }
+        }
         .product-image-container:hover .product-glow {
             opacity: 1;
         }
@@ -2446,5 +2551,57 @@
             }
         });
     </script>
+    <!-- B2B Contact Section -->
+<section id="b2b-contact" class="b2b-section">
+    <div class="section-divider"></div>
+    <div class="container">
+        <h2 class="section-title">Für Händler & Großhändler</h2>
+        <p class="b2b-description">
+            Interessiert an einer Partnerschaft? Kontaktieren Sie uns für LEH (Lebensmitteleinzelhandel) und HoReCa (Hotels, Restaurants, Cafés) Anfragen.
+        </p>
+        
+        <form class="b2b-form" id="b2bForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="company">Firmenname *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Ansprechpartner *</label>
+                    <input type="text" id="contact" name="contact" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">E-Mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="business-type">Geschäftsart *</label>
+                <select id="business-type" name="business-type" required>
+                    <option value="">Bitte auswählen</option>
+                    <option value="leh">LEH - Lebensmitteleinzelhandel</option>
+                    <option value="horeca">HoReCa - Hotels, Restaurants, Cafés</option>
+                    <option value="grosshandel">Großhandel</option>
+                    <option value="other">Sonstiges</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Nachricht *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="b2b-submit-btn">Anfrage senden</button>
+        </form>
+    </div>
+</section>
 </body>
 </html>
